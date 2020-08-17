@@ -1,0 +1,99 @@
+/* pages/targetedpovertyalleviation/targetedpovertyalleviation.wxss */
+
+.alleviation{
+  margin-bottom: 120rpx;
+}
+.search {
+  width: 80%;
+}
+
+.search_arr {
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}
+
+.search_arr input {
+  margin-left: 60rpx;
+  height: 60rpx;
+  border-radius: 5px;
+}
+
+.bc_text {
+  line-height: 68rpx;
+  height: 68rpx;
+  margin-top: 34rpx;
+}
+
+.sousuo {
+  margin-left: 15rpx;
+  width: 15%;
+  line-height: 150%;
+  text-align: center;
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+}
+
+.page_row {
+  display: flex;
+  flex-direction: row
+}
+
+.searchcion {
+  margin: 10rpx 10rpx 10rpx 10rpx;
+  position: absolute;
+  left: 25rpx;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.container{
+  margin-bottom: 100rpx;
+}
+.addBtn {
+  height: 50px;
+  background-color: seagreen;
+  color: white;
+  border-radius: 0;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 包裹图片和两行文字 */
+
+.list_item_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffffff;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}
+
+/* 包裹两行文字 */
+
+.item_view {
+  width: 100%;
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 小字 */
+
+.text_small {
+  font-size: 30rpx;
+  word-break: break-all;
+  color: #7a7878;
+  margin-top: 10rpx
+}

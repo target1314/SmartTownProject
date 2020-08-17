@@ -1,0 +1,32 @@
+<!--pages/epidemicprevention/epidemicprevention.wxml-->
+<view>
+	<view>
+		<navigator url="/page/index/index" hover-class="navigator-hover">
+		</navigator>
+	</view>
+	<view class="tellsection">
+		<text class="title">*</text> <text class="title-text">姓名</text>
+		<input class="tellinput" focus="true" bindinput="nameInput" />
+		<text class="title">*</text> <text class="title-text">证件号码</text>
+		<input class="tellinput" bindinput="cardInput" />
+		<text class="title">*</text> <text class="title-text">性别</text>
+		<radio-group bindchange="radioChangeFirst" class="radiogroup">
+			<view class="radiobox" wx:for="{{sex}}" wx:key="value">
+				<radio value="{{item.id}}" color="#ff0000" checked="{{item.checked}}" />
+				<view class="radiotxt">{{item.value}}</view>
+			</view>
+		</radio-group>
+		<text class="title">*</text> <text class="title-text">联系电话</text>
+		<input class="tellinput" bindinput="phoneInput" />
+		<text class="title">*</text> <text class="title-text">身体是否有异常状态</text>
+		<radio-group bindchange="radioChangeSecond" class="radiogroup">
+			<view class="radiobox" wx:for="{{abnormalstate}}" wx:key="value">
+				<radio value="{{item.id}}" color="#ff0000" checked="{{item.checked}}" />
+				<view class="radiotxt">{{item.value}}</view>
+			</view>
+		</radio-group>
+		<text class="title">*</text> <text class="title-text">居住详细地址</text>
+		<input class="tellinput" bindinput="addressInput" />
+	</view>
+	<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 确认提交 </button>
+</view>

@@ -1,0 +1,4 @@
+<!--pages/video/videodetail.wxml-->
+<view class="video-body">
+	<video id="myVideo" src="{{videoUrl}}" autoplay="true"></video>Ï
+</view>

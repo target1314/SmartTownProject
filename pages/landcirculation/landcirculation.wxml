@@ -1,0 +1,22 @@
+<!--pages/landcirculation/landcirculation.wxml-->
+
+<view>
+	<view>
+		<navigator url="/page/index/index" hover-class="navigator-hover">
+		</navigator>
+	</view>
+	<image class="top-image" src="/image/home/top_banner.jpeg"></image>
+	<view class="tellsection">
+		<text class="title">*</text> <text class="title-text">流出方</text>
+		<input class="tellinput" focus="true" bindinput="outflowSideInput" />
+		<text class="title">*</text> <text class="title-text">流入方</text>
+		<input class="tellinput" bindinput="inflowSideInput" />
+		<text class="title">*</text> <text class="title-text">流转土地位置</text>
+		<input class="tellinput" bindinput="landLocationInput" />
+		<text class="title">*</text> <text class="title-text">流转土地面积/用途</text>
+		<input class="tellinput" bindinput="landAreaInput" />
+		<text class="title">*</text> <text class="title-text">土地承包经营权流转期限</text>
+		<input class="tellinput" type="number" bindinput="landTermInput" />
+	</view>
+	<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 确认提交 </button>
+</view>

@@ -1,0 +1,61 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/me/me",
+    "pages/me/setting",
+    "pages/greenhouse/greenhouse",
+    "pages/aquaculture/aquaculture",
+    "pages/aquaculture/addAquaculture",
+    "pages/partybuilding/partybuilding",
+    "pages/targetedpovertyalleviation/targetedpovertyalleviation",
+    "pages/targetedpovertyalleviation/addTargetedpovertyalleviation",
+    "pages/landcirculation/landcirculation",
+    "pages/scenicspotflow/scenicspotflow",
+    "pages/landslide/landslide",
+    "pages/epidemicprevention/epidemicprevention",
+    "pages/floodprevention/floodprevention",
+    "pages/informationregistration/informationregistration",
+    "pages/login/login",
+    "pages/video/videodetail",
+    "pages/bindphone/bindphone"
+  ],
+
+  "navigateToMiniProgramAppIdList":[
+    "wxf2b3a0262975d8c2"
+],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+
+
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "范家智慧小镇",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f7f7",
+    "enablePullDownRefresh": true 
+  },
+
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#e93a29",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "image/tabBar/home.png",
+      "selectedIconPath": "image/tabBar/home_on.png"
+    }, {
+      "pagePath": "pages/me/me",
+      "text": "我的",
+      "iconPath": "image/tabBar/my.png",
+      "selectedIconPath": "image/tabBar/my_on.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,8 @@
+	<view class="channel">
+		<view wx:for="{{chunnelDefault}}"  wx:key="name">
+			<view class="channel-item" bindtap="goclick" data-item="{{item}}">
+				<image class="channel-image" src="{{item.image}}"></image>
+				<text class="channel-text">{{item.name}}</text>
+			</view>
+		</view>
+	</view>

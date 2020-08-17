@@ -1,0 +1,11 @@
+<!--pages/bindphone/bindphone.wxml-->
+<!--登录页面-->
+<view class="item">
+	<view class="login-item">
+		<view><input bindinput="usernameInput" type="true" placeholder="请输入手机号码" />
+		</view>
+	</view>
+	<view class="login-item bottom">
+		<button class="login-btn" bindtap="login">绑定手机</button>
+	</view>
+</view>

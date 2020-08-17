@@ -1,0 +1,20 @@
+<!--pages/informationregistration/informationregistration.wxml-->
+<view>
+	<view>
+		<navigator url="/page/index/index" hover-class="navigator-hover">
+		</navigator>
+	</view>
+	<image class="top-image" src="/image/home/top_Information.jpeg"></image>
+	<view class="tellsection">
+		<text class="title">*</text> <text class="title-text">姓名</text>
+		<input class="tellinput" focus="true" bindinput="userNameInput" />
+		<text class="title">*</text> <text class="title-text">村组（详细到门牌）</text>
+		<input class="tellinput" bindinput="villageGroupInput" />
+		<text class="title">*</text> <text class="title-text">农产品类目</text>
+		<input class="tellinput" bindinput="productCategoryInput" />
+		<text class="title">*</text> <text class="title-text">产量</text>
+		<input class="tellinput" bindinput="yieldInput" type="number" />
+		<text class="title">*</text> <text class="title-text">联系电话</text>
+		<input class="tellinput"  bindinput="contactPhoneInput" type="number" />
+	</view> <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 确认提交 </button>
+</view>

@@ -1,0 +1,63 @@
+<!--pages/partybuilding/partybuilding.wxml-->
+<view class='swipercontent'>
+	<swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange">
+		<block wx:for="{{imgUrls}}" wx:key="unique">
+			<swiper-item>
+				<image src="{{item}}" class="slide-image" width="355" height="150" />
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="dots">
+		<block wx:for="{{imgUrls}}" wx:key="unique">
+			<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+		</block>
+	</view>
+</view>
+
+<view class='horizontal happnews'>
+	<view class='item happy_tui'>
+		<swiper vertical autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular>
+			<block wx:for="{{news}}" wx:key="unique">
+				<swiper-item>
+					<view class='show-text-1 '>
+						<text class='tui_text'>推荐</text>
+						<text class='tui_item'>{{item}}</text>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+</view>
+<view class="channel">
+	<view wx:for="{{chunnelDefault}}" wx:key="name">
+		<view class="channel-item" bindtap="goclick" data-item="{{item}}">
+			<image class="channel-image" src="{{item.image}}"></image>
+			<text class="channel-text">{{item.name}}</text>
+		</view>
+	</view>
+</view>
+
+
+<!--导航条-->
+<view class="navbar">
+	<text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<!--最新讯息-->
+<view hidden="{{currentTab!==0}}">
+	最新讯息
+</view>
+
+<!--学习课程-->
+<view hidden="{{currentTab!==1}}">
+	学习课程
+</view>
+
+<!--最新活动-->
+<view hidden="{{currentTab!==2}}">
+	最新活动
+</view>
+<!--志愿服务-->
+<view hidden="{{currentTab!==3}}">
+	志愿服务
+</view>

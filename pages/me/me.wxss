@@ -1,0 +1,110 @@
+/* pages/me/me.wxss */
+.bg {
+  height: 150px;
+  background-color: #fff;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+}
+
+.headIcon {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.login {
+  display: flex;
+  color: black;
+  font-size: 15px;
+  margin-top: 15rpx;
+  justify-content: center;
+}
+
+.button {
+  margin: 10px;
+  font-size: 14px;
+  margin-top: 65px;
+}
+
+.head image {
+  border-radius: 50%;
+}
+
+.top_hr {
+  width: 100%;
+  height: 6px;
+  background-color: #f4f5f6;
+}
+
+.hr {
+  width: 100%;
+  height: 15px;
+  background-color: #f4f5f6;
+}
+
+
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-phone-btn {
+  margin-left: 0rpx;
+  padding-left: 0rpx;
+}
+
+.title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+}
+.title-btn {
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 11px;
+  font-size: 15px;
+  background-color: white;
+  font-weight: normal;
+ 
+}
+
+.detail2 {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+  color: #888;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}
+
+.item-btn {
+  background-color: #ffffff;
+  display:flex;
+  flex-direction:row;
+  height: 50px;
+  align-items: center;
+  position: relative;
+  padding-left:5px;
+  padding-right:5px;
+  text-align:left;
+  text-decoration:none;
+  border: none;
+  border-radius: 0;
+}
+
+.item-btn::after {
+  border: none;
+  border-radius: 0;
+}

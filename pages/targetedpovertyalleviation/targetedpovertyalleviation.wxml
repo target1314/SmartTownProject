@@ -1,0 +1,25 @@
+<!--pages/targetedpovertyalleviation/targetedpovertyalleviation.wxml-->
+<view class="alleviation">
+	<view class='page_row' bindtap="suo">
+		<view class="search">
+			<view class="search_arr">
+				<icon class="searchcion" size='20' type='search'></icon>
+				<input class="" type="true" placeholder="请输入关键字" value="{{searchValue}}" bindinput="serachInput" />
+			</view>
+		</view>
+		<view class='sousuo' bindtap="searchBtn">搜索</view>
+	</view>
+	<block class="container" wx:for="{{list}}" wx:key="index">
+		<view class="list_item_view" bindtap="click" id="{{index}}">
+			<view class="item_view">
+				<text>{{item.cityName}}</text>
+				<text class="text_small">所属乡/镇：{{item.townshipName}}</text>
+				<text class="text_small">所属村：{{item.villageName}}</text>
+				<text class="text_small">提交时间：{{item.timeContent}}</text>
+				<text class="text_small">提交人：{{item.subName}}</text>
+			</view>
+		</view>
+		<view class="line"></view>
+	</block>
+</view>
+<button class="addBtn" style='position:fixed;bottom:0;width:100%' bindtap="addBtnCLick">添加数据</button>
