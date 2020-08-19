@@ -45,19 +45,67 @@
 
 <!--最新讯息-->
 <view hidden="{{currentTab!==0}}">
-	最新讯息
+	<view class="item" wx:for="{{newMessage}}" wx:key="message">
+		<view class='img'>
+			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
+		</view>
+		<view class="item-child">
+			<view class="title">
+				{{item.name}}
+			</view>
+			<view class="content">
+				{{item.name}}
+			</view>
+		</view>
+	</view>
 </view>
 
 <!--学习课程-->
 <view hidden="{{currentTab!==1}}">
-	学习课程
+	<view class="item" wx:for="{{newMessage}}" wx:key="message">
+		<view class='img'>
+			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
+		</view>
+		<view class="item-child">
+			<view class="title">
+				{{item.name}}
+			</view>
+			<view class="content">
+				{{item.name}}
+			</view>
+		</view>
+	</view>
 </view>
 
 <!--最新活动-->
 <view hidden="{{currentTab!==2}}">
-	最新活动
+	<view class="item" wx:for="{{newMessage}}" wx:key="message">
+		<view class='img'>
+			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
+		</view>
+		<view class="item-child">
+			<view class="title">
+				{{item.name}}
+			</view>
+			<view class="content">
+				{{item.name}}
+			</view>
+		</view>
+	</view>
 </view>
 <!--志愿服务-->
 <view hidden="{{currentTab!==3}}">
-	志愿服务
+	<view class="item" wx:for="{{newMessage}}" wx:key="message">
+		<view class='img'>
+			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
+		</view>
+		<view class="item-child">
+			<view class="title">
+				{{item.name}}
+			</view>
+			<view class="content">
+				{{item.name}}
+			</view>
+		</view>
+	</view>
 </view>

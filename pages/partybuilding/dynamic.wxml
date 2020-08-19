@@ -1,0 +1,28 @@
+<!--pages/partybuilding/dynamic.wxml-->
+<view class='swipercontent'>
+	<swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange">
+		<block wx:for="{{imgUrls}}" wx:key="unique">
+			<swiper-item>
+				<image src="{{item}}" class="slide-image" width="355" height="150" />
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="dots">
+		<block wx:for="{{imgUrls}}" wx:key="unique">
+			<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+		</block>
+	</view>
+</view>
+	<view class="item" wx:for="{{newMessage}}" wx:key="message">
+		<view class='img'>
+			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
+		</view>
+		<view class="item-child">
+			<view class="title">
+				{{item.name}}
+			</view>
+			<view class="content">
+				{{item.name}}
+			</view>
+		</view>
+	</view>

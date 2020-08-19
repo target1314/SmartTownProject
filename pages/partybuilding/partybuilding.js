@@ -34,6 +34,26 @@ Page({
         image: '/image/home/hudong.png'
       },
     ],
+    newMessage: [{
+      name: '守正创新 总书记这样为媒体融合发展把舵定向',
+      type: '1',
+      image: 'https://p1-tt.byteimg.com/origin/pgc-image/S7fR6Jm9WKNCUU?from=pc'
+    },
+    {
+      name: '个人房贷利率转换倒计时：到底该咋选？',
+      type: '2',
+      image: 'https://p1-tt.byteimg.com/origin/pgc-image/S7fR6Jm9WKNCUU?from=pc'
+    }, {
+      name: '没有一份工作是不委屈的，熬过去',
+      type: '3',
+      image: 'https://p1-tt.byteimg.com/origin/pgc-image/S7fR6Jm9WKNCUU?from=pc'
+    },
+    {
+      name: '租房蟑螂太多，还往身上爬，房东：这么点事，下点药好了',
+      type: '4',
+      image: 'https://p1-tt.byteimg.com/origin/pgc-image/S7fR6Jm9WKNCUU?from=pc'
+    },
+  ],
     navbar: ['最新讯息', '学习课程', '最新活动', '志愿服务'],
     currentTab: 0,
     news: [
@@ -65,6 +85,33 @@ Page({
     })
   },
 
+    //事件处理函数
+    goclick: function (e) {
+      let data = e.currentTarget.dataset.item,
+        type = data.type;
+      switch (type) {
+        case "1":
+          wx.navigateTo({
+            url: '../partybuilding/dynamic?name='+ data.name
+          })
+          break
+        case "2":
+          wx.navigateTo({
+            url: '../partybuilding/study?name='+ data.name
+          })
+          break
+        case "3":
+          wx.navigateTo({
+            url: '../partybuilding/education?name='+ data.name
+          })
+          break
+        case "4":
+          wx.navigateTo({
+            url: '../partybuilding/interaction?name='+ data.name
+          })
+          break
+      }
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
