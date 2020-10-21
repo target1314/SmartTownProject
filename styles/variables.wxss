@@ -1,0 +1,350 @@
+/*font*/
+.f16{
+  font-size: 16rpx!important;
+}
+.f20 {
+  font-size: 20rpx!important;
+}
+.f22 {
+  font-size: 22rpx!important;
+}
+.f24 {
+  font-size: 24rpx!important;
+}
+.f26 {
+  font-size: 26rpx!important;
+}
+.f28 {
+  font-size: 28rpx;
+}
+.f30 {
+  font-size: 30rpx;
+}
+.f32 {
+  font-size: 32rpx;
+}
+.f34 {
+  font-size: 34rpx;
+}
+.f36 {
+  font-size: 36rpx;
+}
+.f38 {
+  font-size: 38rpx;
+}
+.f40{
+  font-size:40rpx!important;
+}
+.f44 {
+  font-size: 44rpx;
+}
+.f48{
+  font-size: 48rpx;
+}
+.fb {
+  font-weight: bold;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+.f-b{
+  font-weight:bold;
+}
+
+/*color*/
+.red {
+  color: #F52D36;
+}
+.white {
+  color: #fff!important;
+}
+.yellow {
+  color: #FFB700!important;
+}
+.bg-yellow {
+  background-color: #fefbda;
+}
+.light {
+  color: #666;
+}
+.lighter {
+  color: #999;
+}
+.dark{
+  color: #333;
+}
+.bg, .bgw {
+  background-color: #ffffff;
+}
+.inline_block{
+  display:inline-block;
+}
+/*layout*/
+.mt5 {
+  margin-top: 5rpx;
+}
+.mt6 {
+  margin-top: 6rpx;
+}
+.mt8 {
+  margin-top: 8rpx;
+}
+.mt10 {
+  margin-top: 10rpx;
+}
+.mt12 {
+   margin-top: 12rpx;
+}
+.mt15 {
+  margin-top: 30rpx;
+}
+.mt16 {
+  margin-top: 16rpx;
+}
+.mt20 {
+  margin-top: 20rpx;
+}
+.mt25 {
+  margin-top: 25rpx;
+}
+.mt30 {
+  margin-top: 30rpx;
+}
+.mt35 {
+  margin-top: 35rpx;
+}
+.mt40 {
+  margin-top: 40rpx;
+}
+.mr5 {
+  margin-right: 5rpx;
+}
+.mr10 {
+  margin-right: 10rpx;
+}
+.mr15 {
+  margin-right: 15rpx;
+}
+.mr16 {
+  margin-right: 16rpx;
+}
+.mr20 {
+  margin-right: 20rpx;
+}
+.mr24 {
+  margin-right: 24rpx;
+}
+.mr25 {
+  margin-right: 25rpx;
+}
+.mr30 {
+  margin-right: 30rpx;
+}
+.mr35 {
+  margin-right: 35rpx;
+}
+.mr40 {
+  margin-right: 40rpx;
+}
+.mb5 {
+  margin-bottom: 5rpx;
+}
+.mb10 {
+  margin-bottom: 10rpx;
+}
+.mb15 {
+  margin-bottom: 15rpx;
+}
+.mb16 {
+  margin-bottom: 16rpx;
+}
+.mb20 {
+  margin-bottom: 20rpx;
+}
+.mb25 {
+  margin-bottom: 25rpx;
+}
+.mb30 {
+  margin-bottom: 30rpx;
+}
+.ml5 {
+  margin-left: 5rpx;
+}
+.ml10 {
+  margin-left: 10rpx;
+}
+.ml15 {
+  margin-left: 15rpx;
+}
+.ml20 {
+  margin-left: 20rpx;
+}
+.ml25 {
+  margin-left: 25rpx;
+}
+.ml30 {
+  margin-left: 30rpx;
+}
+.auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.pl32 {
+  padding-left: 32rpx;
+}
+.plr32 {
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}
+/* border */
+.bra4 {
+  border-radius: 4rpx;
+}
+
+.bra8 {
+  border-radius: 8rpx;
+}
+.bra16 {
+  border-radius: 16rpx;
+}
+/* line-height */
+.lh44 {
+  line-height: 44rpx;
+}
+.lh88 {
+  line-height: 88rpx;
+}
+/* flex */
+.flex {
+  display: flex;
+}
+.flex-1 {
+  flex: 1;
+}
+.flex-js{
+  display: flex;
+  justify-content: space-between;
+}
+.flex-jc{
+  display: flex;
+  justify-content: center;
+}
+.flex-ac {
+  display: flex;
+  align-items: center;
+}
+.flex-js-ac {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-jc-ac {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+.flex-column{
+  flex-direction: column;
+}
+.flex-end{
+  display: flex;
+  justify-content: flex-end;
+}
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+/*position*/
+.pr {
+  position: relative;
+}
+.pa {
+  position: absolute;
+}
+/*interface*/
+.bs-bb {
+  box-sizing: border-box;
+}
+.oh {
+  overflow: hidden;
+}
+.w100{
+  width:100%;
+}
+.no-order-pic{
+  display: block;
+  width:206rpx;
+  height:231rpx;
+  margin:45% auto 20rpx;
+}
+.no-order-text{
+  display:block;
+  text-align:center;
+  font-size:32rpx;
+  color:#333;
+}
+.load-title{
+  background-color:#fff;
+  line-height:50rpx;
+}
+.inline {
+  display: inline;
+}
+.underline {
+  text-decoration: underline;
+}
+.line-through{
+  text-decoration:line-through;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.ov-text{
+  overflow:hidden;
+  white-space:nowrap;
+}
+.over-ell{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.over-ell-1, .over-ell-2, .over-ell-3 {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.over-ell-1 {
+  -webkit-line-clamp: 1;
+}
+.over-ell-2 {
+  -webkit-line-clamp: 2;
+}
+.over-ell-3 {
+  -webkit-line-clamp: 3;
+}
+.price-dis {
+  font-size: 24rpx;
+  text-decoration: line-through;
+  color: #999;
+}
+.s-loading-3 {
+  margin: 0 auto;
+  width: 409rpx;
+  line-height: 60rpx;
+  border-top: 2rpx solid #f5f5f5;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+.mr42{
+  margin-right: 42rpx;
+}
+.lh40{
+  line-height: 40rpx;
+}

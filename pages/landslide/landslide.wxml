@@ -1,13 +1,17 @@
 <!--pages/landslide/landslide.wxml-->
 <view class="main">
-  <view class="navList" wx:for="{{list}}" wx:key="list" bindtap="govideodetail" data-item="{{item}}">
-    <!-- 图片 -->
-    <view class="navListInfo">
-      <image  src="{{item.picUrl}}"></image> 
-      </view>
-    <!-- 标题 -->
-    <view class="navListTitle">
-      {{item.channelName}}
-    </view>
-  </view>
+	<view class="navList" wx:for="{{list}}" wx:key="list" bindtap="govideodetail" data-item="{{item}}">
+		<!-- 图片 -->
+		<view class="navListInfo">
+			<image src="{{item.picUrl}}"></image>
+		</view>
+		<!-- 标题 -->
+		<view class="navListTitle">
+			{{item.channelName}}
+		</view>
+	</view>
+</view>
+<view wx:if="{{!isData}}" class='noData'>
+	<image src="/image/none.png"></image>
+	<view class='mt25'>暂无山体数据</view>
 </view>

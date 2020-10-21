@@ -1,6 +1,7 @@
 // pages/landcirculation/landcirculation.js
+const app = getApp();
+var http = require('../../utils/httputils.js'); //相对路径
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -21,25 +22,25 @@ Page({
   //流入方
   inflowSideInput:function(e){
     this.setData({
-      outflowSideName: e.detail.value
+      inflowSideName: e.detail.value
     })
   },
   //流转土地位置
   landLocationInput:function(e){
     this.setData({
-      outflowSideName: e.detail.value
+      landLocationAddress: e.detail.value
     })
   },
   //流转土地面积/用途
   landAreaInput:function(e){
     this.setData({
-      outflowSideName: e.detail.value
+      landAreaName: e.detail.value
     })
   },
   //土地承包经营权流转期限
   landTermInput:function(e){
     this.setData({
-      outflowSideName: e.detail.value
+      landTermName: e.detail.value
     })
   },
    //提交
@@ -80,11 +81,38 @@ Page({
       })
       return false
     } else {
-      wx.showToast({
-        title: '提交数据'
-      })
+      this.addLandcirculationData();
     }
   },
+    //添加土地流转
+  addLandcirculationData() {
+      var that = this;
+      var prams = {
+        outflowSide: that.data.outflowSideName,
+        inflowSide: that.data.inflowSideName,
+        location: that.data.landLocationAddress,
+        landAreaName: that.data.landAreaName,
+        circulationPeriod: that.data.landTermName,
+      }
+      http.postRequest(app.data.baseUrl + "landCirculation", prams,
+        function (res) {
+          wx.showToast({
+            title: '添加成功',
+            icon: 'success'
+          }),
+          setTimeout(function () {
+            wx.navigateBack({
+              complete: (res) => {},
+            })
+          }, 3000) 
+        },
+        function (err) {
+          wx.showToast({
+            title: '添加失败',
+            icon: 'fail'
+          })
+        })
+    },
   /**
    * 生命周期函数--监听页面加载
    */

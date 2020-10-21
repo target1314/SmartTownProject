@@ -54,7 +54,7 @@
 }
 .addBtn {
   height: 50px;
-  background-color: seagreen;
+  background-color: blue;
   color: white;
   border-radius: 0;
   display: flex;
@@ -90,10 +90,14 @@
 }
 
 /* 小字 */
-
-.text_small {
-  font-size: 30rpx;
+.text_title {
+  font-size: 16px;
   word-break: break-all;
-  color: #7a7878;
+  margin-top: 10rpx
+}
+/* 小字 */
+.text_small {
+  font-size: 14px;
+  word-break: break-all;
   margin-top: 10rpx
 }

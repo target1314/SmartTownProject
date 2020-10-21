@@ -1,0 +1,28 @@
+<!--pages/index/HomeConvenientService.wxml-->
+
+<view class="top-item">
+
+
+	<view class="tellsection">
+		<view class="bbs-input">
+			<text   class="title-text">姓名:</text>
+			<input class="tellinput" focus="true" bindinput="nameInput" />
+		</view>
+		<view class="bbs-input">
+			<text   class="title-text">联系电话:</text>
+			<input class="tellinput" bindinput="phoneInput" maxlength="11" type="number" />
+		</view>
+		<view class="bbs-input">
+			<text   class="title-text">类型:</text>
+			<input class="tellinput" bindtap="typeItem" disabled="false" value="{{typeName}}" />
+		</view>
+
+		<view class="bbs-input">
+			<text  class="title-text">诉求内容:</text>
+			<textarea class="contentinput" bindinput="contentInput" placeholder="输入内容描述..." />
+			</view>
+	</view> 
+	<button class='comm-btn' bindtap="addConService">
+    <view>立即提交</view>
+ </button>
+ </view>

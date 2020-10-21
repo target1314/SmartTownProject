@@ -1,0 +1,18 @@
+<!--pages/partybuilding/dynamicDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class="dynamic_item" wx:if="{{isData}}">
+	<text class='dynamic_item_text'>{{title}}</text>
+	<view class="item_title">
+		<text class='item_text' wx:if="{{publisher}}">{{publisher}}</text>
+		<text class='item_text' wx:if="{{time}}">发表于：{{time}}</text>
+	</view>
+</view>
+<view class="wxParse">
+	<template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+</view>
+
+<view wx:if="{{!isData}}" class='noData'>
+	<image src="/image/none.png"></image>
+	<view class='mt25'>{{noDataTips}}</view>
+</view>

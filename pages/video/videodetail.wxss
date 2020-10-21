@@ -1,16 +1,30 @@
 /* pages/video/videodetail.wxss */
 
-.video-body{
-  position:relative;
-  width:100%;
-  height:0;
-  padding-bottom:56.25%; /*因为padding和margin等受width影响，父容器固定后，子标签可以进行填充。此处是56.25%是9/16，其他比例可以依照此法*/
-  }
-  video{
-  position:absolute;
-  left:0;top:0;
-  width:100%;
-  height:100%;
-  align-items:center;
-  margin-top:40rpx;
-  }
+.video-body {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  /*因为padding和margin等受width影响，父容器固定后，子标签可以进行填充。此处是56.25%是9/16，其他比例可以依照此法*/
+}
+
+video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 40rpx;
+}
+
+.video_title {
+  display: flex;
+  size: 20px;
+  padding: 6px;
+  font-weight: bold;
+}
+
+.wxParse{
+  margin-top: 30px;
+}

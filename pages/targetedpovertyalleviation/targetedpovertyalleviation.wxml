@@ -1,4 +1,5 @@
 <!--pages/targetedpovertyalleviation/targetedpovertyalleviation.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
 <view class="alleviation">
 	<view class='page_row' bindtap="suo">
 		<view class="search">
@@ -9,17 +10,23 @@
 		</view>
 		<view class='sousuo' bindtap="searchBtn">搜索</view>
 	</view>
+
+<view wx:if="{{!isData}}" class='noData'>
+	<image src="/image/none.png"></image>
+	<view class='mt25'>暂无数据</view>
+</view>
+
 	<block class="container" wx:for="{{list}}" wx:key="index">
-		<view class="list_item_view" bindtap="click" id="{{index}}">
+		<view class="list_item_view" bindtap="itemClick" id="{{index}}" data-item="{{item}}">
 			<view class="item_view">
-				<text>{{item.cityName}}</text>
-				<text class="text_small">所属乡/镇：{{item.townshipName}}</text>
-				<text class="text_small">所属村：{{item.villageName}}</text>
-				<text class="text_small">提交时间：{{item.timeContent}}</text>
+				<text class="text_title">所属乡/镇：范家镇村委会</text>
+				<text class="text_small">帮扶项目：{{item.helpProject}}</text>
+				<text class="text_small">提交时间：{{filter.formatTime(item.createTime, 'yyyy-MM-dd')}}</text>
 				<text class="text_small">提交人：{{item.subName}}</text>
 			</view>
 		</view>
 		<view class="line"></view>
 	</block>
 </view>
+
 <button class="addBtn" style='position:fixed;bottom:0;width:100%' bindtap="addBtnCLick">添加数据</button>

@@ -1,4 +1,12 @@
 <!--pages/video/videodetail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+
+<text class="video_title">{{title}}</text>
+
 <view class="video-body">
 	<video id="myVideo" src="{{videoUrl}}" autoplay="true"></video>Ï
+</view>
+
+<view class="wxParse">
+	<template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
 </view>

@@ -1,9 +1,10 @@
 <!--pages/partybuilding/partybuilding.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
 <view class='swipercontent'>
-	<swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange">
+	<swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" style='height:{{Hei}}'>
 		<block wx:for="{{imgUrls}}" wx:key="unique">
 			<swiper-item>
-				<image src="{{item}}" class="slide-image" width="355" height="150" />
+				<image src="{{item.imageUrl}}" class="slide-image" bindload='imgH' mode="widthFix" />
 			</swiper-item>
 		</block>
 	</swiper>
@@ -14,14 +15,14 @@
 	</view>
 </view>
 
-<view class='horizontal happnews'>
+<view class='horizontal happnews' wx:for="{{news}}" wx:key="unique" wx:if="{{index<1}}" data-item="{{item}}" bindtap="noticeClick">
 	<view class='item happy_tui'>
 		<swiper vertical autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular>
-			<block wx:for="{{news}}" wx:key="unique">
+			<block>
 				<swiper-item>
 					<view class='show-text-1 '>
 						<text class='tui_text'>推荐</text>
-						<text class='tui_item'>{{item}}</text>
+						<text class='tui_item'>{{item.title}}</text>
 					</view>
 				</swiper-item>
 			</block>
@@ -45,66 +46,40 @@
 
 <!--最新讯息-->
 <view hidden="{{currentTab!==0}}">
-	<view class="item" wx:for="{{newMessage}}" wx:key="message">
-		<view class='img'>
-			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
-		</view>
-		<view class="item-child">
-			<view class="title">
-				{{item.name}}
+	<view class="item" wx:for="{{dynamicInformation}}" wx:key="message" bindtap="dynamicDetail" data-item="{{item}}"> 
+		<view class="item_data">
+			<view class='img'>
+				<image src="{{item.icon}}" style="width:90px;height:90px;"></image>
 			</view>
-			<view class="content">
-				{{item.name}}
+			<view class="item-child">
+				<view class="title">
+					{{item.title}}
+				</view>
+				<view class="navListTitleItem">
+					<view class="navListTitleLeft">
+						{{item.userName}}
+					</view>
+					<view class="navListTitleRight">
+						{{filter.formatDate(item.createTime)}}
+					</view>
+				</view>
 			</view>
 		</view>
+		<view class="line"></view>
 	</view>
 </view>
 
 <!--学习课程-->
 <view hidden="{{currentTab!==1}}">
-	<view class="item" wx:for="{{newMessage}}" wx:key="message">
-		<view class='img'>
-			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
-		</view>
-		<view class="item-child">
-			<view class="title">
-				{{item.name}}
+	<view class="main">
+		<view class="navList" wx:for="{{studyInformation}}" wx:key="message" bindtap="goVideoDetail" data-item="{{item}}">
+			<!-- 图片 -->
+			<view class="navListInfo">
+				<image src="{{item.cover}}"></image>
 			</view>
-			<view class="content">
-				{{item.name}}
-			</view>
-		</view>
-	</view>
-</view>
-
-<!--最新活动-->
-<view hidden="{{currentTab!==2}}">
-	<view class="item" wx:for="{{newMessage}}" wx:key="message">
-		<view class='img'>
-			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
-		</view>
-		<view class="item-child">
-			<view class="title">
-				{{item.name}}
-			</view>
-			<view class="content">
-				{{item.name}}
-			</view>
-		</view>
-	</view>
-</view>
-<!--志愿服务-->
-<view hidden="{{currentTab!==3}}">
-	<view class="item" wx:for="{{newMessage}}" wx:key="message">
-		<view class='img'>
-			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
-		</view>
-		<view class="item-child">
-			<view class="title">
-				{{item.name}}
-			</view>
-			<view class="content">
-				{{item.name}}
+			<!-- 标题 -->
+			<view class="navListTitle">
+				{{item.title}}
 			</view>
 		</view>
 	</view>

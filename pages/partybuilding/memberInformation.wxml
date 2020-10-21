@@ -1,0 +1,52 @@
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="bg">
+	<view class="head">
+		<view class="userinfo">
+			<view class="headIcon">
+				<image src="{{itemData.headImg}}" style="width:70px;height:70px;"></image>
+			</view>
+		</view>
+		<view class="information">
+			<view class="name">{{itemData.name}}</view>
+			<view class="member">	{{itemData.idCardType==1 ? '正式党员':'普通党员'}}</view>
+		</view>
+	</view>
+</view>
+
+<view class="hr"></view>
+<view class='item'>
+	<view class="title">党内职务</view>
+	<view class="detail2">
+		<text>	{{itemData.jobType==1 ? '书记':'其他'}}</text>
+			</view>
+			</view>
+<view class="line"></view>
+<view class='item'>
+
+	<view class="title">身份类型</view>
+	<view class="detail2">
+		<text>	{{itemData.idCardType==1 ? '正式党员':'普通党员'}}</text>
+	</view>
+</view>
+<view class="line"></view>
+<view class='item'>
+	<view class="title">隶属组织</view>
+	<view class="detail2">
+		<text>范家镇党支部</text>
+	</view>
+</view>
+<view class="line"></view>
+<view class='item'>
+	<view class="title">入党日期</view>
+	<view class="detail2">
+		<text>{{filter.formatTime(createTime, 'yyyy-MM-dd')}}</text>
+	</view>
+</view>
+<view class="line"></view>
+<view class='item'>
+	<view class="title">手机号码</view>
+	<view class="detail2">
+		<text>{{itemData.phone}}</text>
+	</view>
+</view>
+<view class="line"></view>

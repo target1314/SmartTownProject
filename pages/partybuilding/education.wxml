@@ -1,28 +1,52 @@
 <!--pages/partybuilding/education.wxml-->
-<view class='swipercontent'>
-	<swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange">
-		<block wx:for="{{imgUrls}}" wx:key="unique">
-			<swiper-item>
-				<image src="{{item}}" class="slide-image" width="355" height="150" />
-			</swiper-item>
-		</block>
-	</swiper>
-	<view class="dots">
-		<block wx:for="{{imgUrls}}" wx:key="unique">
-			<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
-		</block>
-	</view>
+<view class="member_bottom" wx:if="{{isData && leader.length>0}}">
+	<view class="top_title">范家镇党支部</view>
+	<view class="hr"></view>
+	<block wx:for="{{leader}}" wx:key="index">
+		<view class="item" bindtap="memberDetail" data-item="{{item}}">
+			<view class="item_data">
+				<view class='img'>
+					<image src="{{item.headImg}}" style="width:50px;height:50px;"></image>
+				</view>
+				<view class="item-child">
+					<view class="title">
+						{{item.name}}
+					</view>
+					<view class="content">
+						{{item.idCardType==1 ? '正式党员':'普通党员'}}
+					</view>
+				</view>
+			</view>
+			<view class="line"></view>
+		</view>
+	</block>
 </view>
-	<view class="item" wx:for="{{newMessage}}" wx:key="message">
-		<view class='img'>
-			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
-		</view>
-		<view class="item-child">
-			<view class="title">
-				{{item.name}}
+<view class="bank" wx:if="{{isData && leader.length>0}}"></view>
+<view class="member_bottom" wx:if="{{isData && ordinary.length>0}}">
+	<view class="top_title">范家镇党支部成员</view>
+	<view class="hr"></view>
+	<block wx:for="{{ordinary}}" wx:key="index">
+		<view class="item" bindtap="memberDetail" data-item="{{item}}">
+
+			<view class="item_data">
+				<view class='img'>
+					<image src="{{item.headImg}}" style="width:50px;height:50px"></image>
+				</view>
+				<view class="item-child">
+					<view class="title">
+						{{item.name}}
+					</view>
+					<view class="content">
+						{{item.idCardType==1 ? '正式党员':'普通党员'}}
+					</view>
+				</view>
 			</view>
-			<view class="content">
-				{{item.name}}
-			</view>
+			<view class="line"></view>
 		</view>
-	</view>
+	</block>
+</view>
+
+<view wx:if="{{!isData}}" class='noData'>
+	<image src="/image/none.png"></image>
+	<view class='mt25'>暂无信息</view>
+</view>

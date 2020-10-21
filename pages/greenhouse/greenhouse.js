@@ -11,12 +11,12 @@ Page({
     page: 1, //当前请求数据是第几页
     pageSize: 10, //每页数据条数
     hasMoreData: true,
+    isData: true, //是否有数据
   },
   
   //打开萤石云播放
   govideodetail: function (e) {
     let data = e.currentTarget.dataset.item
-    console.log(data.channelName)
     wx.navigateToMiniProgram({
       appId: 'wxf2b3a0262975d8c2',
       path: 'pages/live/live?accessToken=' + wx.getStorageSync('accessYstoken') + '&deviceSerial=' + data.deviceSerial + '&channelNo=' + data.channelNo,
@@ -46,14 +46,14 @@ Page({
     }
     http.postRequest(app.data.baseYsUrl + "lapp/camera/list", prams,
       function (res) {
-        console.log(res.data)
         var contentlistTem = that.data.list;
         var contentlist = res.data;
         var pageData = res.page;
         if (contentlist.length < that.data.pageSize) {
           that.setData({
             list: contentlistTem.concat(contentlist),
-            hasMoreData: false
+            hasMoreData: false,
+            isData: true
           })
         } else {
           that.setData({
@@ -64,7 +64,9 @@ Page({
         }
       },
       function (err) {
-
+        that.setData({
+          isData: false
+        })
       })
   },
   /**

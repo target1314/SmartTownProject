@@ -1,0 +1,27 @@
+/* pages/index/newsInformation.wxss */
+
+.yuandian {
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  margin-right: 26rpx;
+  background-color: #ED2A22;
+}
+
+.new_list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+}
+
+.new_item {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 50px;
+}
+
+.line {
+  border: 1rpx solid #ccc;
+  opacity: 0.2;
+}

@@ -1,26 +1,35 @@
 // pages/aquaculture/addAquaculture.js
+const app = getApp();
+var http = require('../../utils/httputils.js'); //相对路径
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    varietiesName: '',
     name: '',
+    manage: '',
+    breedingSpecies: '',
     phone: '',
     tradingVolume: '',
     turnover: ''
   },
 
-  //品种
-  varietiesjInput: function (e) {
+  //名称
+  nameInput: function (e) {
     this.setData({
       name: e.detail.value
     })
   },
-  //姓名
-  nameInput: function (e) {
+  //养殖种类
+  varietiesjInput: function (e) {
     this.setData({
-      varietiesName: e.detail.value
+      breedingSpecies: e.detail.value
+    })
+  },
+  //管理者
+  manageInput: function (e) {
+    this.setData({
+      manage: e.detail.value
     })
   },
   //联系电话
@@ -44,14 +53,21 @@ Page({
 
   //提交
   primary: function () {
-    let varietiesName = this.data.varietiesName
     let name = this.data.name
+    let manage = this.data.manage
     let phone = this.data.phone
+    let breedingSpecies = this.data.breedingSpecies
     let tradingVolume = this.data.tradingVolume
     let turnover = this.data.turnover
-    if (varietiesName == '') {
+    if (name == '') {
       wx.showToast({
-        title: '请输入品种',
+        title: '请输入名称',
+        icon: 'none'
+      })
+      return false
+    }else if (manage == '') {
+      wx.showToast({
+        title: '请输入管理者',
         icon: 'none'
       })
       return false
@@ -64,6 +80,12 @@ Page({
     } else if (phone == '') {
       wx.showToast({
         title: '请输入联系电话',
+        icon: 'none'
+      })
+      return false
+    } else if (breedingSpecies == '') {
+      wx.showToast({
+        title: '请输入养殖种类',
         icon: 'none'
       })
       return false
@@ -80,16 +102,48 @@ Page({
       })
       return false
     } else {
-      wx.showToast({
-        title: '提交数据'
-      })
+      this.addAquacultureData();
     }
+  },
+
+  //添加水产养殖
+  addAquacultureData() {
+    var that = this;
+    var prams = {
+      manage: that.data.manage,
+      name: that.data.name,
+      phone: that.data.phone,
+      breedingSpecies: that.data.breedingSpecies,
+      tradingVolume: that.data.tradingVolume,
+      turnover: that.data.turnover,
+      type: 1,
+    }
+    http.postRequest(app.data.baseUrl + "breed", prams,
+      function (res) {
+        wx.showToast({
+          title: '添加成功',
+          icon: 'success'
+        }),
+        setTimeout(function () {
+          wx.navigateBack({
+            complete: (res) => {},
+          })
+        }, 3000) 
+      },
+      function (err) {
+        wx.showToast({
+          title: '添加失败',
+          icon: 'fail'
+        })
+      })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: options.name
+    })
   },
 
   /**

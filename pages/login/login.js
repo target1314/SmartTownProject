@@ -28,6 +28,5 @@ Page({
     this.setData({ password: event.detail.value })
   },
   login:function(){
-    console.log(this.data);
   }
 })

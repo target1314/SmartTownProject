@@ -1,61 +1,15 @@
 // pages/targetedpovertyalleviation/targetedpovertyalleviation.js
+const app = getApp();
+var http = require('../../utils/httputils.js'); //相对路径
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     focus: false,
-    inputValue: '',
-    list: [{
-        id: 1,
-        cityName: '西安',
-        townshipName: '范家镇',
-        villageName: '范家村村委会',
-        timeContent: "2020-07-29",
-        subName: "Taking"
-      },
-      {
-        id: 2,
-        cityName: '西安',
-        townshipName: '范家镇',
-        villageName: '范家村村委会',
-        timeContent: "2020-07-29",
-        subName: "Taking"
-
-      },
-      {
-        id: 3,
-        cityName: '西安',
-        townshipName: '范家镇',
-        villageName: '范家村村委会',
-        timeContent: "2020-07-29",
-        subName: "Taking"
-      },
-      {
-        id: 4,
-        cityName: '西安',
-        townshipName: '范家镇',
-        villageName: '范家村村委会',
-        timeContent: "2020-07-29",
-        subName: "Taking"
-      },
-      {
-        id: 5,
-        cityName: '西安',
-        townshipName: '范家镇',
-        villageName: '范家村村委会',
-        timeContent: "2020-07-29",
-        subName: "Taking"
-      },
-      {
-        id: 6,
-        cityName: '西安',
-        townshipName: '范家镇',
-        villageName: '范家村村委会',
-        timeContent: "2020-07-29",
-        subName: "Taking"
-      }
-    ]
+    searchKey: '',
+    list: [],
+    isData: true, //是否有数据
   },
 
   bindButtonTap: function () {
@@ -67,13 +21,14 @@ Page({
   //搜索文本
   serachInput: function (e) {
     this.setData({
-      inputValue: e.detail.value
+      searchKey: e.detail.value
     })
   },
 
   //搜索
   searchBtn: function () {
-    let inputValue = this.data.inputValue
+    var that = this;
+    let inputValue = this.data.searchKey
     if (inputValue == '') {
       wx.showToast({
         title: '请输入搜索关键字',
@@ -81,15 +36,46 @@ Page({
       })
       return false
     } else {
-      wx.showToast({
-        title: '提交数据'
-      })
+      that.searchTargetedpovertyalleviationData();
     }
+  },
+
+  //搜索精准扶贫数据
+  searchTargetedpovertyalleviationData() {
+    var that = this;
+    var prams = {
+      helpProject: this.data.searchKey
+    }
+    http.getRequest(app.data.baseUrl + "searchPovertyAlleviationRecord", prams,
+      function (res) {
+        if (res.data.length > 0) {
+          that.setData({
+            list: res.data,
+            isData: true
+          })
+        } else {
+          that.setData({
+            isData: false
+          })
+        }
+      },
+      function (err) {
+        that.setData({
+          isData: false
+        })
+      })
   },
   //添加数据
   addBtnCLick: function () {
     wx.navigateTo({
       url: '../targetedpovertyalleviation/addTargetedpovertyalleviation',
+    })
+  },
+  //查看详情
+  itemClick: function (e) {
+    var item = JSON.stringify(e.currentTarget.dataset.item)
+    wx.navigateTo({
+      url: '../targetedpovertyalleviation/targetedpovertyalleviationDetail?data=' + item,
     })
   },
 
@@ -100,6 +86,31 @@ Page({
     wx.setNavigationBarTitle({
       title: options.name
     })
+    this.getTargetedpovertyalleviationData();
+  },
+
+  //获取精准扶贫
+  getTargetedpovertyalleviationData() {
+    var that = this;
+    var prams = {}
+    http.getRequest(app.data.baseUrl + "povertyAlleviationRecord", prams,
+      function (res) {
+        if (res.data.length > 0) {
+          that.setData({
+            list: res.data,
+            isData:true
+          })
+        }else{
+          that.setData({
+            isData:false
+          })
+        }
+      },
+      function (err) {
+        that.setData({
+          isData:false
+        })
+      })
   },
 
   /**
@@ -134,7 +145,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getTargetedpovertyalleviationData();
   },
 
   /**

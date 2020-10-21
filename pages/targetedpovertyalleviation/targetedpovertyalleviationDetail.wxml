@@ -1,0 +1,31 @@
+<!--pages/targetedpovertyalleviation/targetedpovertyalleviationDetail.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="list-title">
+	<view class="left">所属乡/镇</view>
+	<view class="right">范家镇村委会</view>
+</view>
+<view class="list-title">
+	<view class="left">帮扶项目</view>
+	<view class="right">{{itemData.helpProject}}</view>
+</view>
+<view class="list-title">
+	<view class="left">帮扶对象</view>
+	<view class="right">{{itemData.helpObj}}</view>
+</view>
+
+<view class="list-title">
+	<view class="left">负责人</view>
+	<view class="right">{{itemData.personCharge}}</view>
+</view>
+<view class="list-title">
+	<view class="left">帮扶时间</view>
+	<view class="right">{{filter.formatTime(itemData.createTime, 'yyyy-MM-dd')}}</view>
+</view>
+<view class="list-title">
+	<view class="left">贫困状态 </view>
+	<view class="right">{{itemData.poorState==2 ? '贫困':'贫困'}}</view>
+</view>
+<view class="list-title">
+	<view class="left">帮扶数 </view>
+	<view class="right">{{itemData.helpNum}}</view>
+</view>

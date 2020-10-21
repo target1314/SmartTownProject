@@ -1,0 +1,17 @@
+<!--pages/me/fabulous.wxml-->
+<view class="item" wx:for="{{fabulous}}" wx:key="fabulous" data-item="{{item}}"wx:if="{{isData}}">
+	<view class="item_data">
+		<view class='img'>
+			<image class="item_img" src="{{item.avatarUrl}}"></image>
+		</view>
+		<view class="title">
+			{{item.nickName}}
+		</view>
+	</view>
+	<view class="line"></view>
+</view>
+
+<view wx:if="{{!isData}}" class='noData'>
+	<image src="/image/none.png"></image>
+	<view class='mt25'>暂无点赞</view>
+</view>

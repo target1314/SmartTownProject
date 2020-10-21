@@ -24,8 +24,16 @@
 }
 
 .button {
-  margin: 10px;
-  font-size: 14px;
+  width: 90%;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+  background-color: blue;
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin-top: 65px;
 }
 
@@ -56,23 +64,35 @@
   padding-left: 0rpx;
 }
 
+.image-icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 16px;
+  margin-left: 5px;
+}
+
+.image-feedback-icon {
+  width: 18px;
+  height: 18px;
+}
+
 .title {
-  padding-top: 15px;
+  padding-top: 13px;
   padding-bottom: 15px;
-  padding-left: 15px;
+  padding-left: 5px;
   font-size: 15px;
   background-color: white;
   color: black;
 }
+
 .title-btn {
   background-color: white;
   padding-top: 15px;
   padding-bottom: 15px;
-  padding-left: 11px;
+  padding-left: 6px;
   font-size: 15px;
   background-color: white;
   font-weight: normal;
- 
 }
 
 .detail2 {
@@ -84,6 +104,29 @@
   color: #888;
 }
 
+.relatedfunctions {
+  height: 44px;
+  line-height: 44px;
+  align-items: center;
+  margin-left: 6px;
+}
+
+.relevant {
+  margin-left: 2px;
+  font-size: 16px;
+  color: #27a6ff;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.icon_line {
+  padding: 0 0 0 8px;
+  border-left: 3px solid #ED2A22;
+  text-align: center;
+  line-height: 10px;
+  margin: auto 0;
+}
+
 .line {
   border: 1px solid #ccc;
   opacity: 0.2;
@@ -91,15 +134,15 @@
 
 .item-btn {
   background-color: #ffffff;
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   height: 50px;
   align-items: center;
   position: relative;
-  padding-left:5px;
-  padding-right:5px;
-  text-align:left;
-  text-decoration:none;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: left;
+  text-decoration: none;
   border: none;
   border-radius: 0;
 }
@@ -107,4 +150,33 @@
 .item-btn::after {
   border: none;
   border-radius: 0;
+}
+
+
+.channel {
+  overflow: hidden;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.channel-item {
+  position: relative;
+  float: left;
+  width: 33.33333333%;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.channel-image {
+  width: 40px;
+  height: 40px;
+  vertical-align: top;
+}
+
+.channel-text {
+  display: block;
+  color: black;
+  padding: 6px;
 }

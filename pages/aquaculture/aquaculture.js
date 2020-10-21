@@ -17,7 +17,6 @@ Page({
   //打开萤石云播放
   govideodetail: function (e) {
     let data = e.currentTarget.dataset.item
-    console.log(data.channelName)
     wx.navigateToMiniProgram({
       appId: 'wxf2b3a0262975d8c2',
       path: 'pages/live/live?accessToken=' + wx.getStorageSync('accessYstoken') + '&deviceSerial=' + data.deviceSerial + '&channelNo=' + data.channelNo,
@@ -47,7 +46,6 @@ Page({
       }
       http.postRequest(app.data.baseYsUrl + "lapp/camera/list", prams,
         function (res) {
-          console.log(res.data)
           var contentlistTem = that.data.list;
           var contentlist = res.data;
           var pageData = res.page;

@@ -1,18 +1,29 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/index/HomeStoryInformation",
+    "pages/index/HomeNewsInformation",
+    "pages/index/HomeAgriculturalProduct",
+    "pages/index/HomeConvenientService",
     "pages/me/me",
+    "pages/me/fabulous",
     "pages/me/setting",
+    "pages/me/studyHistory",
+    "pages/me/myFeedBack",
     "pages/greenhouse/greenhouse",
     "pages/aquaculture/aquaculture",
     "pages/aquaculture/addAquaculture",
     "pages/partybuilding/partybuilding",
     "pages/partybuilding/dynamic",
+    "pages/partybuilding/dynamicDetail",
     "pages/partybuilding/study",
     "pages/partybuilding/education",
+    "pages/partybuilding/memberInformation",
     "pages/partybuilding/interaction",
+    "pages/partybuilding/addInteraction",
     "pages/targetedpovertyalleviation/targetedpovertyalleviation",
     "pages/targetedpovertyalleviation/addTargetedpovertyalleviation",
+    "pages/targetedpovertyalleviation/targetedpovertyalleviationDetail",
     "pages/landcirculation/landcirculation",
     "pages/scenicspotflow/scenicspotflow",
     "pages/landslide/landslide",
@@ -25,7 +36,7 @@
   ],
 
   "navigateToMiniProgramAppIdList":[
-    "wxf2b3a0262975d8c2"
+    "wx86a3fe0373f614fd"
 ],
   "permission": {
     "scope.userLocation": {
@@ -60,6 +71,5 @@
       "selectedIconPath": "image/tabBar/my_on.png"
     }]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

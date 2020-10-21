@@ -1,2 +1,2 @@
 <!--pages/me/setting.wxml-->
-<text>pages/me/setting.wxml</text>
+	<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 退出账号 </button>

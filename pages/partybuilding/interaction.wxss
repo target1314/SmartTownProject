@@ -1,197 +1,14 @@
 /* pages/partybuilding/interaction.wxss */
-/* pages/partybuilding/partybuilding.wxss */
+.item-top {
+  margin-bottom: 50px;
+}
 
-container {
-  height: 100%;
+.item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  align-items: center;
 }
 
-.swipers {
-  height: 562rpx;
-  width: 100%;
-}
-
-.slide-image {
-  width: 750rpx;
-  height: 562rpx;
-  display: block;
-}
-
-.dots {
-  width: 156rpx;
-  height: 36rpx;
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  bottom: 20rpx;
-}
-
-/*未选中时的小圆点样式 */
-.swipercontent {
-  position: relative;
-}
-
-swiper {
-  width: 100%;
-  height: 340rpx;
-}
-
-swiper image {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 20rpx;
-  display: flex;
-  margin:0 auto;
-  justify-content: center;
-}
-
-.dot {
-  margin: 0 8rpx;
-  width: 14rpx;
-  height: 14rpx;
-  background: #fff;
-  border-radius: 8rpx;
-  transition: all .6s;
-}
-
-.dot.active {
-  width: 14rpx;
-  background: #f80;
-}
-
-.channel {
-  overflow: hidden;
-  background-color: #fff;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-.channel-item {
-  position: relative;
-  float: left;
-  padding: 10px 10px;
-  width: 25%;
-  box-sizing: border-box;
-  border-right: 1rpx;
-  border-bottom: 1rpx;
-  text-align: center;
-}
-
-.channel-image {
-  width: 50px;
-  height: 50px;
-  vertical-align: top;
-}
-
-.channel-text {
-  display: block;
-  color: black;
-  size: 20px;
-  padding: 6px;
-}
-
-.navbar{
-  flex: none;
-  display: flex;
-  background: #fff;
-}
-.navbar .item{
-  position: relative;
-  flex: auto;
-  text-align: center;
-  line-height: 80rpx;
-}
-.navbar .item.active{
-  color: #FFCC00;
-}
-.navbar .item.active:after{
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4rpx;
-  background: #FFCC00;
-}
-
-page {
-  background: #f6f6f9;
-}
-
-.horizontal{
-  display: flex;
-  flex-direction: row;
-}
-
-.item {
-  flex: 1;
-}
-
-.happy_tui{
-  padding: 0 8px; 
-}
-
-.happy_tui > swiper {
-  height: 30px;
-  line-height:30px;
-}
-
-.show-text-1{
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-}
-
-.tui_item{
-  font-size: 12px; 
-  color: #000; 
-  vertical-align: middle; 
-}
-
-.tui_text{
-  border: 1px solid #ED2A22; 
-  border-radius: 12px; 
-  font-size: 9px; 
-  color: #ED2A22; 
-  padding: 0 3px; 
-  margin: 0 5px 0 0;
-}
-
-.more{
-  padding: 0 0 0 8px;
-  border-left: 1px solid #333;
-  text-align:center;
-  line-height:18px;
-  margin:auto 0;
-}
-
-.more > text{
-  font-size: 12px; 
-  color: #000;
-}
-
-.happnews{
-  margin-top:10px;
-  padding: 8px 10px; 
-  background: white;
-}
-
-.item {
+.item_data {
   display: flex;
   flex-direction: row;
 }
@@ -203,26 +20,270 @@ page {
 .item-child {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  margin-left: 4px;
   width: 100%;
 }
 
-.titile {
-  margin-top: 30rpx;
+.bbs_text {
+  display: flex;
+  flex-direction: column;
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.title {
   width: 100%;
-  font-size: 28rpx;
-  font-weight: bold;
-  -webkit-line-clamp:2;
+  font-size: 14px;
+  margin-top: 4px;
+  max-lines: 1;
+  -webkit-line-clamp: 1;
 }
 
 .content {
-  font-size: 28rpx;
+  font-size: 12px;
+  margin-top: 8px;
   color: gray;
-  margin-top: 30rpx;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp: 1;
 }
 
 .hr {
   height: 10px;
   background-color: #f4f5f6;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}
+
+/* 评论-回复-回复评论显示区域 */
+.container-bbs {
+  margin-top: 16px;
+  padding-left: 32rpx;
+}
+
+.total {
+  font-size: 24rpx;
+  color: #999999;
+  margin-left: 1rpx;
+  align-items: center;
+  justify-items: center;
+}
+
+.container_inp {
+  width: 661rpx;
+  height: 32rpx;
+  background-color: #F2F2F2;
+  border-radius: 8rpx;
+  padding: 17rpx 0rpx 15rpx 25rpx;
+  margin-top: 24rpx;
+  margin-bottom: 47rpx;
+}
+
+.container_place {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.container-item {
+  display: flex;
+  margin-bottom: 80rpx;
+  align-items: flex-start;
+}
+
+.item_bbs_img {
+  width: 50px;
+  height: 50px;
+  margin-right: 17rpx;
+  border-radius: 50%;
+}
+
+.item_img {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 17rpx;
+  border-radius: 50%;
+}
+
+.item_right {
+  display: inline-block;
+  width: 636rpx;
+  border-bottom: 2rpx solid #E5E5E5;
+  padding-bottom: 40rpx;
+}
+
+.right_name {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.right_content {
+  width: 603rpx;
+  margin-top: 20rpx;
+}
+
+.right_content_txt {
+  font-size: 26rpx;
+  color: #333333;
+}
+
+.right_content_txt2 {
+  font-size: 24rpx;
+  color: #CCCCCC;
+  margin-left: 30rpx;
+}
+
+.reply {
+  display: flex;
+  margin-top: 32rpx;
+  align-items: flex-start;
+}
+
+.reply_img {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 17rpx;
+}
+
+.reply_right {
+  display: inline-block;
+  width: 546rpx;
+}
+
+/* 结束 */
+.end {
+  margin-top: 47rpx;
+  margin-bottom: 48rpx;
+  text-align: center;
+}
+
+.end_txt {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 底部评论 */
+.foot {
+  width: 686rpx;
+  padding: 17rpx 32rpx;
+  background-color: #FFFFFF;
+  box-shadow: 0rpx -1rpx 4rpx 0rpx rgba(0, 0, 0, 0.08);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.say {
+  display: inline-block;
+  width: 360rpx;
+  padding: 20rpx 0rpx 10rpx 24rpx;
+  background-color: #F2F2F2;
+  border-radius: 8rpx;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.say_img {
+  width: 16px;
+  height: 16px;
+  margin-right: 13rpx;
+  /* vertical-align: 10rpx; */
+}
+
+.say_inp {
+  display: inline-block;
+  width: 300rpx;
+  height: 33rpx;
+}
+
+.say_place {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.foot_img {
+  width: 20px;
+  height: 20px;
+  margin-left: 50rpx;
+  margin-right: 17rpx;
+}
+
+.give-comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.give-item {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  position: relative;
+  margin-right: 20px;
+}
+
+.give_img {
+  width: 20px;
+  height: 20px;
+  text-align: right;
+}
+
+.give-text {
+  font-size: 30rpx;
+  text-align: right;
+}
+
+.foot_num {
+  font-size: 24rpx;
+  vertical-align: 10rpx;
+}
+
+.foot_img2 {
+  width: 20px;
+  height: 20px;
+  margin-left: 30rpx;
+  margin-right: 17rpx;
+}
+
+add-wrap {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-wrap image {
+  position: fixed;
+  bottom: 50px;
+  width: 40px;
+  height: 40px;
+  justify-content: right;
+  text-align: right
+}
+
+.round-click {
+  height: 100rpx;
+  width: 100rpx;
+  background-color:blue;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 150rpx;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+.round-click navigator {
+  font-size: 32rpx;
+  max-width: 80rpx;
+  color: #fff;
+  text-align: center;
 }

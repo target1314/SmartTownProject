@@ -5,16 +5,77 @@
 		</navigator>
 	</view>
 	<image class="top-image" src="/image/home/top_Information.jpeg"></image>
-	<view class="tellsection">
-		<text class="title">*</text> <text class="title-text">姓名</text>
-		<input class="tellinput" focus="true" bindinput="userNameInput" />
-		<text class="title">*</text> <text class="title-text">村组（详细到门牌）</text>
-		<input class="tellinput" bindinput="villageGroupInput" />
-		<text class="title">*</text> <text class="title-text">农产品类目</text>
-		<input class="tellinput" bindinput="productCategoryInput" />
-		<text class="title">*</text> <text class="title-text">产量</text>
-		<input class="tellinput" bindinput="yieldInput" type="number" />
-		<text class="title">*</text> <text class="title-text">联系电话</text>
-		<input class="tellinput"  bindinput="contactPhoneInput" type="number" />
-	</view> <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 确认提交 </button>
+
+	<!--导航条-->
+	<view class="navbar">
+		<text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+	</view>
+
+	<!--贫困-->
+	<view hidden="{{currentTab!==0}}">
+		<view class="tellsection">
+			<text class="title">*</text> <text class="title-text">姓名</text>
+			<input class="tellinput" focus="true" bindinput="userNameInput" value="{{userName}}" />
+			<text class="title">*</text> <text class="title-text">身份证号码</text>
+			<input class="tellinput" bindinput="idCardInput" maxlength="18" value="{{idCardNumber}}" />
+			<text class="title">*</text> <text class="title-text">村组（详细地址）</text>
+			<input class="tellinput" bindinput="villageGroupInput" value="{{villageGroupName}}" />
+			<text class="title">*</text> <text class="title-text">产量</text>
+			<input class="tellinput" bindinput="yieldInput" type="number" value="{{yieldCount}}" />
+			<text class="title">*</text> <text class="title-text">联系电话</text>
+			<input class="tellinput" bindinput="contactPhoneInput" type="number" maxlength="11" onkeyup="value=value.replace(/[^\d]/g,'')" value="{{contactPhone}}" />
+		</view>
+		<button class='comm-btn' bindtap="poorPrimary" disabled="{{disabled}}">
+			<view>立即提交</view>
+		</button>
+	</view>
+
+	<!--大棚-->
+	<view hidden="{{currentTab!==1}}">
+		<view class="tellsection">
+			<text class="title">*</text> <text class="title-text">大棚名称</text>
+			<input class="tellinput" bindinput="greenHouseNameInput" value="{{greenHouseName}}" />
+			<text class="title">*</text> <text class="title-text">种类</text>
+			<input class="tellinput" bindinput="greenCategroryInput" value="{{greenCategroryName}}" />
+			<text class="title">*</text> <text class="title-text">地址</text>
+			<input class="tellinput" bindinput="greenHouseCategoryInput" value="{{greenHouseAddress}}" />
+			<text class="title">*</text> <text class="title-text">管理者</text>
+			<input class="tellinput" focus="true" bindinput="greenHouseManageInput" value="{{greenHouseManage}}" />
+		</view>
+		<button class='comm-btn' bindtap="greenHousePrimary" disabled="{{disabled}}">
+			<view>立即提交</view>
+		</button>
+	</view>
+
+	<!--山体-->
+	<view hidden="{{currentTab!==2}}">
+		<view class="tellsection">
+			<text class="title">*</text> <text class="title-text">地址</text>
+			<input class="tellinput" focus="true" bindinput="landslideAddressInput" value="{{landslideAddress}}" />
+			<text class="title">*</text> <text class="title-text">负责人</text>
+			<input class="tellinput" bindinput="landslidePersonInput" value="{{landslidePerson}}" />
+			<text class="title">*</text> <text class="title-text">电话</text>
+			<input class="tellinput" bindinput="landslidePhoneInput" type="number" maxlength="11" onkeyup="value=value.replace(/[^\d]/g,'')" value="{{landslidePhone}}" />
+		</view>
+		<button class='comm-btn' bindtap="landslidePrimary" disabled="{{disabled}}">
+			<view>立即提交</view>
+		</button>
+	</view>
+
+	<!--景区-->
+	<view hidden="{{currentTab!==3}}">
+		<view class="tellsection">
+			<text class="title">*</text> <text class="title-text">景区名称</text>
+			<input class="tellinput" focus="true" bindinput="scenicSpotNameInput" value="{{scenicSpotName}}" />
+			<text class="title">*</text> <text class="title-text">景区地址</text>
+			<input class="tellinput" bindinput="scenicSpotAddressInput" value="{{scenicSpotAddress}}" />
+			<text class="title">*</text> <text class="title-text">负责人</text>
+			<input class="tellinput" bindinput="scenicSpotPrsonInput" value="{{scenicSpotPrson}}" />
+			<text class="title">*</text> <text class="title-text">联系电话</text>
+			<input class="tellinput" bindinput="scenicSpotPhoneInput" type="number" maxlength="11" onkeyup="value=value.replace(/[^\d]/g,'')" value="{{scenicSpotPhone}}" />
+		</view>
+		<button class='comm-btn' bindtap="scenicSpotPrimary" disabled="{{disabled}}">
+			<view>立即提交</view>
+		</button>
+	</view>
 </view>

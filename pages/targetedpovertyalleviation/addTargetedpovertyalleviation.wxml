@@ -5,22 +5,53 @@
 		</navigator>
 	</view>
 	<view class="tellsection">
+
 		<text class="title">*</text> <text class="title-text">帮扶对象</text>
-		<input class="tellinput" focus="true" bindinput="helpObjInput" />
+		<input class="tellinput" wx:if="{{!disabled}}" focus="true" bindinput="helpObjInput" disabled="{{disabled}}" value="{{helpObjName}}" />
+		<text class="title">*</text> <text class="title-text">所属村</text>
+		<input class="tellinput" wx:if="{{!disabled}}" bindinput="helpCompanyInput" disabled="{{disabled}}" value="{{helpCompanyName}}" />
+		<text class="title">*</text> <text class="title-text">负责人</text>
+		<input class="tellinput" wx:if="{{!disabled}}" bindinput="helpNameInput" disabled="{{disabled}}" value="{{helpName}}" />
+		<text class="title">*</text> <text class="title-text">帮扶项目</text>
+		<input class="tellinput" wx:if="{{!disabled}}" bindinput="helpProjectInput" disabled="{{disabled}}" value="{{helpProject}}" />
 		<view wx:if="{{isLocationData}}">
 			<text class="title">*</text> <text class="title-text">当前位置</text>
 		</view>
 		<view>
 			<text class="loaction"> {{currentAddress}}</text>
 		</view>
-		<text class="title">*</text> <text class="title-text">帮扶单位</text>
-		<input class="tellinput" bindinput="helpCompanyInput" />
-		<text class="title">*</text> <text class="title-text">帮扶人</text>
-		<input class="tellinput" bindinput="helpNameInput" />
 		<text class="title">*</text> <text class="title-text">帮扶时间</text>
-		<input class="tellinput" bindinput="helpTimeInput" />
+		<input class="tellinput-time" wx:if="{{!disabled}}" bindtap="helpTimeInput" disabled="false" value="{{helpTime}}" />
+		<text class="title">*</text> <text class="title-text">贫困状态</text>
+		<input class="tellinput-time" wx:if="{{!disabled}}" bindtap="helpPoorStateInput" disabled="false" value="{{helppoorState}}" />
 		<text class="title">*</text> <text class="title-text">帮扶数量</text>
-		<input class="tellinput" type="number" bindinput="helpCountInput" />
+		<input class="tellinput" wx:if="{{!disabled}}" type="number" bindinput="helpCountInput" disabled="{{disabled}}" value="{{helpCount}}" />
 	</view>
-	<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 确认提交 </button>
+	<button class='comm-btn' bindtap="primary" disabled="{{disabled}}">
+		<view>立即提交</view>
+	</button>
+</view>
+<!-- 日期 -->
+<view class="canlendarBgView" wx:if="{{isShow}}">
+	<view class="canlendarView">
+		<view class="canlendarTopView">
+			<view class="leftBgView" bindtap="handleCalendar" data-handle="prev">
+				<view class="leftView">《</view>
+			</view>
+			<view class="centerView">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+			<view class="rightBgView" bindtap="handleCalendar" data-handle="next">
+				<view class="rightView">》</view>
+			</view>
+		</view>
+		<view class="weekBgView" wx:if="{{isShow}}">
+			<view class="weekView" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+		</view>
+		<view class="dateBgView" wx:if="{{isShow}}">
+			<view wx:if="{{hasEmptyGrid}}" class="dateEmptyView" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+			</view>
+			<view class="dateView" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="dateSelectAction">
+				<view class="datesView {{index == todayIndex ? 'dateSelectView' : ''}}">{{item}}</view>
+			</view>
+		</view>
+	</view>
 </view>

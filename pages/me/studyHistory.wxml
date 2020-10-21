@@ -1,0 +1,15 @@
+<!--pages/me/studyHistory.wxml-->
+	<view class='new_list'>
+		<view bindtap="goVideoDetail" wx:for="{{studyInformation}}" wx:key="name" data-item="{{item}}">
+			<view class='new_item'>
+				<view class="yuandian"></view>
+				<text class='tui_item'>{{item.title}}</text>
+			</view>
+			<view class="line"></view>
+		</view>
+	</view>
+
+  <view wx:if="{{!isData}}" class='noData'>
+	<image src="/image/none.png"></image>
+	<view class='mt25'>暂无学习记录</view>
+</view>

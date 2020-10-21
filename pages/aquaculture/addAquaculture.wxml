@@ -1,16 +1,20 @@
 <!--pages/aquaculture/addAquaculture.wxml-->
 <view>
 	<view class="tellsection">
-		<text class="title">*</text> <text class="title-text">品种</text>
-		<input class="tellinput" focus="true" bindinput="varietiesjInput" />
-		<text class="title">*</text> <text class="title-text">姓名</text>
-		<input class="tellinput" bindinput="nameInput" />
+		<text class="title">*</text> <text class="title-text">名称</text>
+		<input class="tellinput" focus="true" bindinput="nameInput" />
+		<text class="title">*</text> <text class="title-text">管理者</text>
+		<input class="tellinput" bindinput="manageInput" />
 		<text class="title">*</text> <text class="title-text">联系电话</text>
-		<input class="tellinput" bindinput="phoneInput" />
+		<input class="tellinput" bindinput="phoneInput" type="number" maxlength="11" onkeyup="value=value.replace(/[^\d]/g,'')" />
+		<text class="title">*</text> <text class="title-text">养殖种类</text>
+		<input class="tellinput" bindinput="varietiesjInput" />
 		<text class="title">*</text> <text class="title-text">交易量</text>
 		<input class="tellinput" type="number" bindinput="tradingVolumeInput" />
 		<text class="title">*</text> <text class="title-text">交易额</text>
 		<input class="tellinput" type="number" bindinput="turnoverInput" />
 	</view>
-	<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 确认提交 </button>
+	<button class='comm-btn' bindtap="primary">
+		<view>确认提交</view>
+	</button>
 </view>

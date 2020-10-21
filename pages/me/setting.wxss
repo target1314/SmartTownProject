@@ -1,1 +1,6 @@
 /* pages/me/setting.wxss */
+.btn{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}

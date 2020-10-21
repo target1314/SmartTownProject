@@ -1,4 +1,6 @@
 // pages/epidemicprevention/epidemicprevention.js
+const app = getApp();
+var http = require('../../utils/httputils.js'); //相对路径
 Page({
 
   /**
@@ -29,7 +31,9 @@ Page({
     phone: '',
     address: '',
     sexType: 1,
-    bodyType: 2,
+    state: 4,
+    stateName: '', //状态名称
+    curentdate: ''
   },
 
   //姓名
@@ -88,32 +92,91 @@ Page({
       })
       return false
     } else {
-      wx.showToast({
-        title: '提交数据'
-      })
+      this.addEpidemicpreventionData();
     }
+  },
+
+  //添加疫情防控
+  addEpidemicpreventionData() {
+    var that = this;
+    var prams = {
+      createTime: that.data.curentdate,
+      idCard: that.data.card,
+      name: that.data.name,
+      state: that.data.state,
+      village: that.data.address,
+      sexType: that.data.sexType,
+    }
+    http.postRequest(app.data.baseUrl + "epidemicSurveillance", prams,
+      function (res) {
+        wx.showToast({
+            title: '添加成功',
+            icon: 'success'
+          }),
+          setTimeout(function () {
+            wx.navigateBack({
+              complete: (res) => {},
+            })
+          }, 3000)
+      },
+      function (err) {
+
+      })
   },
 
   // 性别
   radioChangeFirst: function (e) {
     // console.log('radio发生change事件，携带value值为：', e.detail.value)
     const sex = this.data.sex
-    console.log(e.detail.value);
-    console.log(sex);
     var type = parseInt(e.detail.value);
     this.setData({
       sexType: type
     })
   },
   //是否身体状态
-  radioChangeSecond: function (e) {
-    // console.log('radio发生change事件，携带value值为：', e.detail.value)
-    const sex = this.data.abnormalstate
-    console.log(e.detail.value);
-    console.log(sex);
-    var type = parseInt(e.detail.value);
-    this.setData({
-      bodyType: type
+  /*   radioChangeSecond: function (e) {
+      // console.log('radio发生change事件，携带value值为：', e.detail.value)
+      const sex = this.data.abnormalstate
+      var type = parseInt(e.detail.value);
+      this.setData({
+        bodyType: type
+      })  
+    }, */
+  //身体状态
+  epidemicpreventionSecondInput: function (e) {
+    var that = this;
+    //异常状态分类
+    wx: wx.showActionSheet({
+      itemList: ['确诊', '治愈', '隔离', '无症状'],
+      itemColor: '',
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            that.setData({
+              state: res.tapIndex,
+              stateName: '确诊'
+            })
+          } else if (res.tapIndex == 1) {
+            that.setData({
+              state: res.tapIndex,
+              stateName: '治愈'
+            })
+          } else if (res.tapIndex == 2) {
+            that.setData({
+              state: res.tapIndex,
+              stateName: '隔离'
+            })
+          } else if (res.tapIndex == 3) {
+            that.setData({
+              state: res.tapIndex,
+              stateName: '无症状'
+            })
+          }
+          console.log(res.tapIndex);
+        }
+      },
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
 
@@ -124,8 +187,22 @@ Page({
     wx.setNavigationBarTitle({
       title: options.name
     })
+    this.getCurrentData();
   },
 
+  /**
+   * 获取当前时间
+   */
+  getCurrentData: function () {
+    var newData = new Date();
+    var that = this;
+    newData.getFullYear();
+    newData.getMonth();
+    newData.getDate();
+    that.setData({
+      curentdate: newData.getFullYear() + '-' + (newData.getMonth() + 1) + '-' + newData.getDate()
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

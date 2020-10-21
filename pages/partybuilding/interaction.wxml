@@ -1,28 +1,72 @@
-<!--pages/partybuilding/interaction.wxml-->
-<view class='swipercontent'>
-	<swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange">
-		<block wx:for="{{imgUrls}}" wx:key="unique">
-			<swiper-item>
-				<image src="{{item}}" class="slide-image" width="355" height="150" />
-			</swiper-item>
-		</block>
-	</swiper>
-	<view class="dots">
-		<block wx:for="{{imgUrls}}" wx:key="unique">
-			<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
-		</block>
-	</view>
-</view>
-	<view class="item" wx:for="{{newMessage}}" wx:key="message">
+<!--pages/partybuilding/dynamic.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view  class="item-top">
+<view class="item" wx:for="{{interActiveList}}" wx:key="message" data-item="{{item}}">
+	<view class="item_data">
 		<view class='img'>
-			<image src="{{item.image}}" style="width:80px;height:80px;"></image>
+			<image class="item_bbs_img" src="{{item.avatarUrl}}"></image>
 		</view>
 		<view class="item-child">
 			<view class="title">
-				{{item.name}}
+				{{item.nickName}}
 			</view>
 			<view class="content">
-				{{item.name}}
+			{{filter.formatDate(item.createTime)}}
 			</view>
 		</view>
 	</view>
+	<view class="bbs_text">
+		<text class="title">{{item.title}}</text>
+		<text class="content">{{item.content}}</text>
+	</view>
+	<!-- 评论-回复-回复评论显示区域 -->
+	<view class="container-bbs">
+		<!-- 总共评论数 -->
+		<view class="give-comment">
+			<view class="total">共{{item.comments.length}}条评论</view>
+			<view class="give-item" data-bbsId="{{item.bbsId}}" data-giveType="{{item.giveType}}" bindtap="giveClick" data-index="{{index}}" data-userId=" {{item.userId}}">
+				<image class="give_img" src="/image/zan.png"></image>
+				<text class="give-text">{{item.giveType ==1 ? '取消' :'点赞'}}</text>
+			</view>
+		</view>
+		<!-- END -->
+		<!-- 评论框 -->
+		<input confirm-type="send" data-bbsId="{{item.bbsId}}" data-index="{{index}}" class="container_inp" value="{{value}}" placeholder="{{ placeholder2 }}" placeholder-class="container_place" bindconfirm="bindconfirm"></input>
+		<!-- END -->
+		<!-- 用户评论回复显示区域 -->
+		<view class="container-item" wx:for="{{item.comments}}" wx:for-item="cell" wx:key="index">
+			<image class="item_img" src="{{cell.avatarUrl}}"></image>
+			<view class="item_right">
+				<view class="right_name">{{cell.nickName}}</view>
+				<view class="right_content">
+					<text class="right_content_txt"  data-type="1">{{cell.content}}</text>
+					<text class="right_content_txt2">		{{filter.formatDate(cell.createTime)}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+</view>
+<!-- END -->
+	<!-- 底部评论 -->
+	<view class="foot">
+		<view class="say">
+			<view class="flex">
+				<image class="say_img" src="/image/edit.png"></image>
+				<input confirm-type="send" class="say_inp" placeholder="{{ placeholder }}" value="{{ comment_text }}" focus="{{ focus }}" bindblur="blur" bindconfirm="confirm"></input>
+			</view>
+		</view>
+		<image class="foot_img" src="/image/comment.png"></image>
+		<text class="foot_num">{{commentCount}}</text>
+		<image class="foot_img2" src="/image/zan.png"></image>
+		<text class="foot_num">{{giveCount}}</text>
+	</view>
+<!--圆形点击框  -->
+<view class="round-click">
+	<navigator url='/pages/partybuilding/addInteraction'>发布</navigator>
+</view>
+
+<view wx:if="{{!isData}}" class='noData'>
+	<image src="/image/none.png"></image>
+	<view class='mt25'>请发布一个动态</view>
+</view>

@@ -1,0 +1,59 @@
+/* pages/index/HomeConvenientService.wxss */
+
+page {
+  background-image: url("https://www.fanjiasmarttown.com/image/convenientService.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+}
+
+.top-item {
+  margin-top: 140px;
+}
+
+.catebox {
+  padding: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cate-item {
+  border: 1rpx solid #ddd;
+  padding: 10rpx 20rpx;
+  display: inline-block;
+  margin-bottom: 30rpx;
+}
+
+.tellsection {
+  margin: 16px;
+}
+
+.tellinput {
+  border: 1px solid #efeff4;
+  height: 25px;
+  padding-top: 4px;
+  margin-top: 4px;
+  padding-left: 6px;
+}
+
+.contentinput {
+  border: 1px solid #efeff4;
+  width: 98%;
+  height: 150px;
+  padding-top: 4px;
+  padding-left: 6px;
+  margin-top: 4px;
+  justify-items: center;
+}
+
+.bbs-input {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.title-text {
+  size: 20px;
+  color: black;
+  font-weight: bold;
+}

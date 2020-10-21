@@ -1,0 +1,10 @@
+<!--pages/index/newsInformation.wxml-->
+	<view class='new_list'>
+		<view bindtap="newItemClick" wx:for="{{dynamicInformation}}" wx:key="name" data-item="{{item}}">
+			<view class='new_item'>
+				<view class="yuandian"></view>
+				<text class='tui_item'>{{item.title}}</text>
+			</view>
+			<view class="line"></view>
+		</view>
+	</view>

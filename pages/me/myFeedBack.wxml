@@ -1,0 +1,106 @@
+<!--pages/me/myFeedBack.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<!--导航条-->
+<view class="navbar">
+	<text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<!--正在处理中-->
+<view hidden="{{currentTab!==0}}">
+	<view class="item" wx:for="{{handeleConvenientService}}" wx:key="message" data-item="{{item}}">
+		<view class="item_data">
+			<view class="item-child">
+				<view class="title" wx:if="{{isShow}}">
+					<text>诉求人姓名：</text> {{item.name}}
+				</view>
+				<view class="title" wx:if="{{isShow}}">
+					<text>诉求人联系方式：</text>{{item.phone}}
+				</view>
+				<view class="title">
+					<text>诉求类型：</text>{{item.typeName}}
+				</view>
+				<view class="title">
+					<text>诉求内容：</text>{{item.content}}
+				</view>
+				<view class="title">
+					<text>诉求时间：</text> {{filter.formatTime(item.createTime)}}
+				</view>
+				<view class="title" wx:if="{{item.returnContent}}">
+					<text>回复信息：</text> {{item.returnContent}}
+				</view>
+				<!-- <view class="title" wx:if="{{item.finishTime && isShow}}">
+					<text>解决时间：</text> {{filter.formatTime(item.finishTime)}}
+				</view> -->
+				<view class="btn_item_view" wx:if="{{item.state==1 && isShow}}">
+					<view class="btn_left_item" bindtap="commentBtn" data-index="{{index}}">
+						<text class="btn_left">回复</text>
+					</view>
+					<view class="btn_right_item" bindtap="completeBtn" data-index="{{index}}">
+						<text class="btn_right">完成</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="line"></view>
+	</view>
+
+	<view wx:if="{{!isHandelNoData}}" class='noData'>
+		<image src="/image/none.png"></image>
+		<view class='mt25'>暂无反馈意见</view>
+	</view>
+</view>
+
+<!--已解决-->
+<view hidden="{{currentTab!==1}}">
+	<view class="item" wx:for="{{resolvedConvenientService}}" wx:key="message" data-item="{{item}}">
+		<view class="item_data">
+			<view class="item-child">
+				<view class="title" wx:if="{{isShow}}">
+					<text>诉求人姓名：</text>{{item.name}}
+				</view>
+				<view class="title" wx:if="{{isShow}}">
+					<text>诉求人联系方式：</text>{{item.phone}}
+				</view>
+				<view class="title">
+					<text>诉求类型：</text>{{item.typeName}}
+				</view>
+				<view class="title">
+					<text>诉求内容：</text>{{item.content}}
+				</view>
+				<view class="title">
+					<text>诉求时间：</text> {{filter.formatTime(item.createTime)}}
+				</view>
+				<view class="title" wx:if="{{item.finishTime}}">
+					<text>解决时间：</text> {{filter.formatTime(item.finishTime)}}
+				</view>
+				<view class="title" wx:if="{{item.returnContent}}">
+					<text>回复信息：</text> {{item.returnContent}}
+				</view>
+				<view class="btn_item_view">
+					<view class="btn_right_item" bindtap="delBtn" data-index="{{index}}" data-bmId="{{item.bmId}}" data-state="{{item.state}}">
+						<text class="btn_right">删除</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="line"></view>
+	</view>
+	<view wx:if="{{!isResolvedNoData}}" class='noData'>
+		<image src="/image/none.png"></image>
+		<view class='mt25'>暂无反馈意见</view>
+	</view>
+</view>
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+	<view class="modal-content">
+		<view class="modal-input">
+			<input placeholder-class="input-holder" focus="true" bindinput="inputChange" class="input" placeholder="输入回复内容描述.." maxlength="100"></input>
+		</view>
+	</view>
+	<view class="modal-footer">
+		<view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+		<view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+	</view>
+</view>

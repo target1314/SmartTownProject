@@ -1,8 +1,76 @@
+	<wxs src="../../utils/filter.wxs" module="filter" />
+	<view class='swipercontent'>
+		<swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" style='height:{{Hei}}'>
+			<block wx:for="{{imgUrls}}" wx:key="unique">
+				<swiper-item>
+					<image src="{{item.imageUrl}}" class="slide-image" bindload='imgH' />
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="dots">
+			<block wx:for="{{imgUrls}}" wx:key="unique">
+				<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+			</block>
+		</view>
+	</view>
+	<view class='horizontal happnews' >
+		<view class="notice">
+			<image src="/image/home/news.png"></image>
+		</view>
+		<view class='item happy_tui' wx:for="{{news}}" wx:key="unique" wx:if="{{index<1}}" data-item="{{item}}" bindtap="noticeClick">
+			<swiper vertical autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular>
+				<block >
+					<swiper-item>
+						<view>
+							<text class='tui_item'>{{item.title}}</text>
+						</view>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+		<view class='more'>
+			<text>></text>
+		</view>
+	</view>
+	<view class="line"></view>
 	<view class="channel">
-		<view wx:for="{{chunnelDefault}}"  wx:key="name">
+		<view wx:for="{{chunnelDefault}}" wx:key="name">
 			<view class="channel-item" bindtap="goclick" data-item="{{item}}">
-				<image class="channel-image" src="{{item.image}}"></image>
+				<image class="channel-image" src="{{item.image}}" mode="widthFix"></image>
 				<text class="channel-text">{{item.name}}</text>
 			</view>
 		</view>
 	</view>
+	<view class="line"></view>
+	<view class='horizontal happnews'>
+		<view class='item happy_tui'>
+			<view class='show-text-1 '>
+				<text class='icon_line'></text>
+				<text class='new_item_text'>新闻资讯</text>
+			</view>
+		</view>
+		<view class='more' bindtap="newMoreClick">
+			<text>更多>></text>
+		</view>
+	</view>
+<view class="item" wx:for="{{dynamicInformation}}" wx:key="message" bindtap="newItemClick" data-item="{{item}}" wx:if="{{index<10}}">
+	<view class="item_data">
+		<view class='img'>
+			<image src="{{item.icon}}" style="width:90px;height:90px;"></image>
+		</view>
+		<view class="item-child">
+			<view class="title">
+				{{item.title}}
+			</view>
+				<view class="navListTitleItem">
+					<view class="navListTitleLeft">
+						{{item.userName}}
+					</view>
+					<view class="navListTitleRight">
+						{{filter.formatDate(item.createTime)}}
+					</view>
+				</view>
+		</view>
+	</view>
+	<view class="line"></view>
+</view>

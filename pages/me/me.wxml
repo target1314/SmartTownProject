@@ -1,7 +1,9 @@
 <view class="bg">
 	<view class="head">
-		<view class="userinfo" wx-else>
-			<button type="primary" class="button" open-type="getUserInfo" bindgetuserinfo="auth" wx:if="{{showAuth}}"> 微信登录 </button>
+		<button class='button' bindtap="primary" open-type="getUserInfo" bindgetuserinfo="auth" wx:if="{{showAuth}}">
+			<view>微信登录</view>
+		</button>
+		<view class="userinfo" wx:if="{{!showAuth}}">
 			<view class="headIcon">
 				<image src="{{userInfo.avatarUrl}}" style="width:70px;height:70px;"></image>
 			</view>
@@ -13,28 +15,77 @@
 
 <view class="hr"></view>
 <view class='item' bindtap="bindphone">
-	<view class="title">手机绑定</view>
+	<image class="image-icon" src="/image/phone.png"> </image>
+	<view class="title">手机号码</view>
 	<view class="detail2">
-		<text>></text>
+		<text>{{phone + '  >'}}</text>
 	</view>
 </view>
-<view class="hr"></view>
-<view class="item">
-	<view class="title">我的收藏</view>
+<view class="line"></view>
+<view class='item' bindtap="bindrole">
+	<image class="image-icon" src="/image/roles.png"> </image>
+	<view class="title">用户角色</view>
+	<view class="detail2">
+		<text>{{roleName}}</text>
+	</view>
+</view>
+<view class="line"></view>
+<view class="relatedfunctions">
+	<text class='icon_line'></text>
+	<text class="relevant">相关功能</text>
+</view>
+<view class="line"></view>
+<view class="channel">
+	<view wx:for="{{chunnelDefault}}" wx:key="name">
+		<view class="channel-item" bindtap="goclick" data-item="{{item}}">
+			<image class="channel-image" src="{{item.image}}" mode="widthFix"></image>
+			<text class="channel-text">{{item.name}}</text>
+		</view>
+	</view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="feedback">
+	<image class="image-icon" src="/image/feedback.png"> </image>
+	<view class="title">我的反馈(便民服务)</view>
 	<view class="detail2">
 		<text> ></text>
 	</view>
 </view>
 <view class="line"></view>
-<button class="item-btn" open-type="feedback" style="width:100%;height:50px;">
+<view class="item" bindtap="bindStudy">
+	<image class="image-icon" src="/image/study_icon.png"> </image>
+	<view class="title">学习记录</view>
+	<view class="detail2">
+		<text> ></text>
+	</view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="bindFabulous">
+	<image class="image-icon" src="/image/fabulous.png"> </image>
+	<view class="title">我的点赞</view>
+	<view class="detail2">
+		<text> ></text>
+	</view>
+</view>
+<!-- <button class="item-btn" open-type="feedback" style="width:100%;height:50px;">
+	<image class="image-feedback-icon" src="/image/feedback.png"> </image>
 	<view class="title-btn">意见反馈</view>
 	<view class="detail2">
 		<text> ></text>
 	</view>
-</button>
+</button> -->
 <view class="line"></view>
-<view class="item" bindtap="setbtn">
-	<view class="title">设置</view>
+<view class="item" bindtap="bindCallPhone">
+	<image class="image-icon" src="/image/tell.png"> </image>
+	<view class="title">党务室电话</view>
+	<view class="detail2">
+		<text> {{customerTelephone}}</text>
+	</view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="quitbtn">
+	<image class="image-icon" src="/image/quit.png"> </image>
+	<view class="title">退出账号</view>
 	<view class="detail2">
 		<text> ></text>
 	</view>

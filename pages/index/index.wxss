@@ -1,28 +1,259 @@
+.slide-image {
+  display: block;
+}
+
+.dots {
+  width: 156rpx;
+  height: 36rpx;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 20rpx;
+}
+
+/*未选中时的小圆点样式 */
+.swipercontent {
+  position: relative;
+}
+
+swiper {
+  width: 100%;
+  height: 340rpx;
+}
+
+swiper image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20rpx;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.dot {
+  margin: 0 8rpx;
+  width: 14rpx;
+  height: 14rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  transition: all .6s;
+}
+
+.dot.active {
+  width: 14rpx;
+  background: #ED2A22;
+}
+
 .channel {
-  border-top: 1rpx solid #D9D9D9;
   overflow: hidden;
+  margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 .channel-item {
   position: relative;
   float: left;
-  padding: 20px 10px;
   width: 33.33333333%;
   box-sizing: border-box;
-  border-right: 1rpx solid #D9D9D9;
-  border-bottom: 1rpx solid #D9D9D9;
   text-align: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .channel-image {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   vertical-align: top;
 }
 
 .channel-text {
   display: block;
   color: black;
-  size: 16px;
   padding: 6px;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  flex: 1;
+}
+
+.happy_tui {
+  padding: 0 8px;
+}
+
+.happy_tui>swiper {
+  height: 30px;
+  line-height: 30px;
+}
+
+.show-text-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.tui_item {
+  font-size: 12px;
+  color: #000;
+  vertical-align: middle;
+}
+
+.new_item_text {
+  font-size: 16px;
+  color: #27a6ff;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.tui_text {
+  border: 1px solid #ED2A22;
+  border-radius: 12px;
+  font-size: 9px;
+  color: #ED2A22;
+  padding: 0 3px;
+  margin: 0 5px 0 0;
+}
+
+.more {
+  padding: 0 0 0 8px;
+  text-align: center;
+  line-height: 18px;
+  margin: auto 0;
+}
+
+.more>text {
+  font-size: 12px;
+  color: #000;
+}
+
+.happnews {
+  margin-top: 10px;
+  margin-right: 6px;
+  margin-bottom: 10px;
+  background: white;
+}
+
+.icon_line {
+  padding: 0 0 0 8px;
+  border-left: 3px solid #ED2A22;
+  text-align: center;
+  line-height: 10px;
+  margin: auto 0;
+}
+
+.yuandian {
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  margin-right: 26rpx;
+  background-color: #ED2A22;
+}
+
+.new_list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+}
+
+.new_item {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 50px;
+}
+
+.line {
+  border: 1rpx solid #ccc;
+  opacity: 0.2;
+}
+
+.notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6px;
+  margin-top: 3px;
+}
+
+.notice image {
+  width: 20px;
+  height: 20px;
+}
+
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.item_data{
+  display: flex;
+  flex-direction: row;
+}
+
+.img {
+  margin: 10rpx 0 10rpx 10rpx;
+}
+
+.item-child {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  width: 100%;
+}
+.title {
+  display: -webkit-box;
+  margin-top: 6px;
+  width: 100%;
+  font-size: 16px;
+  height:45px;
+  -webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.navListTitleItem{
+  display: flex;
+  flex-direction: row;
+  margin-top: 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navListTitleLeft{
+  margin-right: 6px;
+  font-size: 12px;
+}
+.navListTitleRight{
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.content {
+  display: -webkit-box;
+  font-size: 14px;
+  color: gray;
+  margin-top: 6px;
+  -webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.hr {
+  height: 10px;
+  background-color: #f4f5f6;
 }

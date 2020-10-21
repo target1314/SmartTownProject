@@ -1,0 +1,30 @@
+<!--pages/index/HomeAgriculturalProduct.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<scroll-view class="tab-list" scroll-x scroll-with-animation>
+	<view wx:for="{{farmTypes}}" wx:key="type"  class="tab-item {{curTab===index ? 'selected-tab':''}}" data-index="{{index}}" bindtap="selectTab">{{item.type}}</view>
+</scroll-view>
+    <view class="item"  wx:for="{{dynamicInformation}}" wx:key="message" bindtap="dynamicDetail" data-item="{{item}}">
+	<view class="item_data">
+		<view class='img'>
+			<image src="{{item.icon}}" style="width:90px;height:90px;"></image>
+		</view>
+		<view class="item-child">
+			<view class="title">
+				{{item.title}}
+			</view>
+				<view class="navListTitleItem">
+					<view class="navListTitleLeft">
+						{{item.userName}}
+					</view>
+					<view class="navListTitleRight">
+						{{filter.formatDate(item.createTime)}}
+					</view>
+				</view>
+		</view>
+	</view>
+	<view class="line"></view>
+</view>
+<view wx:if="{{!isData}}" class='noData'>
+	<image src="/image/none.png"></image>
+	<view class='mt25'>暂无信息</view>
+</view>

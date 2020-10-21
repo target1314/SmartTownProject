@@ -1,0 +1,14 @@
+	<view class="tellsection">
+		<view class="bbs-input">
+			<text   class="title-text">标题:</text>
+			<input class="tellinput" focus="true" bindinput="subjectInput" placeholder="输入标题..." />
+		</view>
+
+		<view class="bbs-input">
+			<text  class="title-text">内容:</text>
+			<textarea class="contentinput" bindinput="contentInput" placeholder="输入内容描述..." maxlength="200" />
+			</view>
+	</view> 
+		<button class='comm-btn' bindtap="addBbs">
+    <view>立即提交</view>
+ </button>
