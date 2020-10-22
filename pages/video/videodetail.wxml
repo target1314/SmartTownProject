@@ -4,7 +4,7 @@
 <text class="video_title">{{title}}</text>
 
 <view class="video-body">
-	<video id="myVideo" src="{{videoUrl}}" autoplay="true"></video>Ï
+	<video id="myVideo" src="{{videoUrl}}" autoplay="true"></video>
 </view>
 
 <view class="wxParse">

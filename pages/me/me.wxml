@@ -12,8 +12,20 @@
 		</view>
 	</view>
 </view>
-
 <view class="hr"></view>
+<view class="relatedfunctions">
+	<text class='icon_line'></text>
+	<text class="relevant">相关功能</text>
+</view>
+<view class="channel">
+	<view wx:for="{{chunnelDefault}}" wx:key="name">
+		<view class="channel-item" bindtap="goclick" data-item="{{item}}">
+			<image class="channel-image" src="{{item.image}}" mode="widthFix"></image>
+			<text class="channel-text">{{item.name}}</text>
+		</view>
+	</view>
+</view>
+<view class="line"></view>
 <view class='item' bindtap="bindphone">
 	<image class="image-icon" src="/image/phone.png"> </image>
 	<view class="title">手机号码</view>
@@ -30,23 +42,9 @@
 	</view>
 </view>
 <view class="line"></view>
-<view class="relatedfunctions">
-	<text class='icon_line'></text>
-	<text class="relevant">相关功能</text>
-</view>
-<view class="line"></view>
-<view class="channel">
-	<view wx:for="{{chunnelDefault}}" wx:key="name">
-		<view class="channel-item" bindtap="goclick" data-item="{{item}}">
-			<image class="channel-image" src="{{item.image}}" mode="widthFix"></image>
-			<text class="channel-text">{{item.name}}</text>
-		</view>
-	</view>
-</view>
-<view class="line"></view>
 <view class="item" bindtap="feedback">
 	<image class="image-icon" src="/image/feedback.png"> </image>
-	<view class="title">我的反馈(便民服务)</view>
+	<view class="title">我的反馈</view>
 	<view class="detail2">
 		<text> ></text>
 	</view>

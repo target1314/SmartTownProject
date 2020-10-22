@@ -1,6 +1,6 @@
 <!--pages/index/HomeAgriculturalProduct.wxml-->
 <wxs src="../../utils/filter.wxs" module="filter" />
-<scroll-view class="tab-list" scroll-x scroll-with-animation>
+<scroll-view class="tab-list"  scroll-x="true" scroll-x scroll-with-animation>
 	<view wx:for="{{farmTypes}}" wx:key="type"  class="tab-item {{curTab===index ? 'selected-tab':''}}" data-index="{{index}}" bindtap="selectTab">{{item.type}}</view>
 </scroll-view>
     <view class="item"  wx:for="{{dynamicInformation}}" wx:key="message" bindtap="dynamicDetail" data-item="{{item}}">

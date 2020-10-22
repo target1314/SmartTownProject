@@ -12,7 +12,7 @@ Page({
     isData: true,
     curTab: 0,
     current: 0,
-    farmTypes: []
+    farmTypes: [],
   },
   selectTab(e) {
     var that = this;

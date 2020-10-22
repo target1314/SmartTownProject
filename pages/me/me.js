@@ -109,7 +109,7 @@ Page({
           if (res.confirm) {
             that.setData({
               showAuth: true,
-              phone: '绑定手机号'
+              phone: '未绑定'
             })
             wx.setStorageSync('openId', '')
             wx.setStorageSync('showAuth', true)
@@ -204,7 +204,7 @@ Page({
   onShow: function () {
     if (this.data.openid) {
       this.bindWxAuth();
-    } 
+    }
     if (wx.getStorageSync('phone')) {
       this.setData({
         phone: wx.getStorageSync('phone')
@@ -336,10 +336,17 @@ Page({
     http.httpPostRequest(app.data.baseUrl + "user/wx_auth", prams,
       function (res) {
         if (res.data && res.data.roles) {
-          that.setData({
-            phone: res.data.phone == '' ? '绑定手机号' : res.data.phone,
-            roleName: res.data.roles[0].roleName
-          })
+          if (res.data.phone.length == 0) {
+            that.setData({
+              phone: '未绑定',
+              roleName: res.data.roles[0].roleName
+            })
+          } else {
+            that.setData({
+              phone: res.data.phone,
+              roleName: res.data.roles[0].roleName
+            })
+          }
           wx.setStorageSync('userId', res.data.userId)
           wx.setStorageSync('roleId', res.data.roles[0].roleId)
           that.getAvatar();

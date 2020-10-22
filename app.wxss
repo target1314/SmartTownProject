@@ -7,7 +7,7 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
 
 .comm-btn {
   width: 90%;
@@ -20,6 +20,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.item-hover {
+  background: white;
 }
 
 @import "/styles/variables.wxss";

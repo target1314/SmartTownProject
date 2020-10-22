@@ -13,5 +13,5 @@
 
 <view wx:if="{{!isData}}" class='noData'>
 	<image src="/image/none.png"></image>
-	<view class='mt25'>暂无点赞</view>
+	<view class='mt25'>暂无信息</view>
 </view>

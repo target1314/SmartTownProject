@@ -28,7 +28,7 @@
 				</block>
 			</swiper>
 		</view>
-		<view class='more'>
+		<view class='more' wx:if="{{isAdvTitle}}" >
 			<text>></text>
 		</view>
 	</view>
@@ -54,7 +54,7 @@
 		</view>
 	</view>
 <view class="item" wx:for="{{dynamicInformation}}" wx:key="message" bindtap="newItemClick" data-item="{{item}}" wx:if="{{index<10}}">
-	<view class="item_data">
+	<view class="item_data" hover-class="item-hover">
 		<view class='img'>
 			<image src="{{item.icon}}" style="width:90px;height:90px;"></image>
 		</view>

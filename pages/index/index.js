@@ -12,6 +12,7 @@ Page({
     swiperCurrent: 0,
     Hei: wx.getStorageSync('swiperH'), //这是swiper要动态设置的高度属性
     news: null,
+    isAdvTitle: false,
     chunnelDefault: [{
         name: '智慧党建',
         type: 1,
@@ -66,9 +67,13 @@ Page({
         })
         break
       case 4:
-        wx.navigateTo({
-          url: '../index/HomeConvenientService?name=' + data.name
-        })
+        if (wx.getStorageSync('openId')) {
+          wx.navigateTo({
+            url: '../index/HomeConvenientService?name=' + data.name
+          })
+        } else {
+          this.loginJundge();
+        }
         break
       case 5:
         wx.navigateTo({
@@ -84,12 +89,26 @@ Page({
   },
 
   /**
+   * 是否登录
+   */
+  loginJundge: function () {
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '你还未登录，请先登录！',
+      success(res) {
+        if (res.confirm) {}
+      }
+    })
+  },
+
+  /**
    * 更多资讯
    * @param {} params 
    */
   newMoreClick: function (params) {
     wx.navigateTo({
-      url: '../index/HomeNewsInformation?name=' + '新闻资讯'+ '&type=1'
+      url: '../index/HomeNewsInformation?name=' + '新闻资讯' + '&type=1'
     })
   },
 
@@ -200,7 +219,8 @@ Page({
     http.getRequest(app.data.baseUrl + "spb/getHorseRaceLamp", prams,
       function (res) {
         that.setData({
-          news: res.data
+          news: res.data,
+          isAdvTitle:true
         })
       },
       function (err) {})

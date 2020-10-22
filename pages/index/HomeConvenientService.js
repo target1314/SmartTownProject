@@ -12,6 +12,7 @@ Page({
     type: '',
     typeName: '',
     content: '',
+    typeItem: [],
     userId: wx.getStorageSync('userId')
   },
   /**
@@ -40,37 +41,37 @@ Page({
     var that = this;
     //异常状态分类
     wx: wx.showActionSheet({
-      itemList: ['个人诉求', '民意诉求', '业务诉求', '政策咨询', '业务办理'],
+      itemList: that.data.typeItem,
       itemColor: '',
       success: function (res) {
         if (!res.cancel) {
+          var itemType = res.tapIndex + 1;
           if (res.tapIndex == 0) {
             that.setData({
-              type: res.tapIndex,
-              typeName:'个人诉求'
+              type: itemType,
+              typeName: that.data.typeItem[res.tapIndex]
             })
           } else if (res.tapIndex == 1) {
             that.setData({
-              type: res.tapIndex,
-              typeName:'民意诉求'
+              type: itemType,
+              typeName: that.data.typeItem[res.tapIndex]
             })
           } else if (res.tapIndex == 2) {
             that.setData({
-              type: res.tapIndex,
-              typeName:'业务诉求'
+              type: itemType,
+              typeName: that.data.typeItem[res.tapIndex]
             })
           } else if (res.tapIndex == 3) {
             that.setData({
-              type: res.tapIndex,
-              typeName:'政策咨询'
+              type: itemType,
+              typeName: that.data.typeItem[res.tapIndex]
             })
           } else if (res.tapIndex == 4) {
             that.setData({
-              type: res.tapIndex,
-              typeName:'业务办理'
+              type: itemType,
+              typeName: that.data.typeItem[res.tapIndex]
             })
           }
-          console.log(res.tapIndex);
         }
       },
       fail: function (res) {},
@@ -123,6 +124,27 @@ Page({
     }
   },
 
+  //查询便民服务所有类型
+  getAllAppealTypeData() {
+    var that = this;
+    var prams = {}
+    http.getRequest(app.data.baseUrl + "getAllAppealType", prams,
+      function (res) {
+        var param = {};
+        for (var index in res.data) {
+          var string = "typeItem[" + index + "]";
+          param[string] = res.data[index].type;
+          that.setData(param);
+        }
+        that.setData({
+          typeItem: that.data.typeItem
+        })
+      },
+      function (err) {
+
+      })
+  },
+
   //添加便民服务
   addConServicesData() {
     var that = this;
@@ -142,7 +164,7 @@ Page({
         wx.showToast({
             title: '提交成功，我们会尽快解决您的相关问题！',
             icon: 'none',
-            duration:3000,
+            duration: 3000,
           }),
           setTimeout(function () {
             wx.navigateBack({
@@ -164,7 +186,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '便民服务',
     })
-
+    this.getAllAppealTypeData();
   },
 
   /**

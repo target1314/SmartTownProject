@@ -161,13 +161,33 @@ Page({
         })
         break
       case "4":
-        wx.navigateTo({
-          url: '../partybuilding/interaction?name=' + data.name
-        })
+        if (wx.getStorageSync('openId')) {
+          wx.navigateTo({
+            url: '../partybuilding/interaction?name=' + data.name
+          })
+        } else {
+          this.loginJundge();
+        }
         break
     }
   },
 
+
+  /**
+   * 是否登录
+   */
+  loginJundge: function () {
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '你还未登录，请先登录！',
+      success(res) {
+        if (res.confirm) {
+        }
+      }
+    })
+  },
+  
   /**
    * 通知查看内容
    * @param {} params 
