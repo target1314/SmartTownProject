@@ -191,7 +191,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="item">
         <template is="wxParse2" data="{{item}}" />
       </block>
     </view>
@@ -268,7 +268,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="item">
         <template is="wxParse3" data="{{item}}" />
       </block>
     </view>

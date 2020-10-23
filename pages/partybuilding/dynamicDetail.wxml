@@ -4,8 +4,8 @@
 <view class="dynamic_item" wx:if="{{isData}}">
 	<text class='dynamic_item_text'>{{title}}</text>
 	<view class="item_title">
-		<text class='item_text' wx:if="{{publisher}}">{{publisher}}</text>
-		<text class='item_text' wx:if="{{time}}">发表于：{{time}}</text>
+		<text class='item_text' wx:if="{{publisher}}">发布者：{{publisher}}</text>
+		<text class='item_text' wx:if="{{time}}">发布时间：{{time}}</text>
 	</view>
 </view>
 <view class="wxParse">
