@@ -32,11 +32,64 @@ Page({
       url: '../video/videodetail?name=' + data.title + '&videoUrl=' + data.url + '&id=' + data.studyId,
     })
   },
+  /**
+   * 长按删除
+   * @param {}} e 
+   */
+  longTap: function (e) {
+    var that = this;
+    let data = e.currentTarget.dataset;
+    var itemList = this.data.studyInformation;
+    var index = data.index;
+    wx.showModal({
+      title: '提示',
+      content: '你确定删除吗？',
+      success(res) {
+        if (res.confirm) {
+          that.delStudyHistoryData(data.id, index, itemList);
+        }
+      }
+    })
+  },
 
+  /**
+   * 删除学校记录
+   * @param {*} id 
+   * @param {*} itemList 
+   */
+  delStudyHistoryData(id, index, itemList) {
+    var that = this;
+    var prams = {}
+    http.deleteRequest(app.data.baseUrl + "/spb/delStudyHistory/" + id, prams,
+      function (res) {
+        itemList.splice(index, 1)
+        that.setData({
+          studyInformation: itemList,
+        })
+        if (that.data.studyInformation.length > 0) {
+          that.setData({
+            isData: true
+          })
+        } else {
+          that.setData({
+            isData: false
+          })
+        }
+      },
+      function (err) {
+        wx.showToast({
+          title: '删除失败',
+          icon: 'none',
+          duration: 1000,
+        })
+      })
+  },
   //获取学习信息
   getStudyInformationData() {
     var that = this;
-    var prams = {}
+    var prams = {
+      userId: wx.getStorageSync('userId')
+    }
     http.getRequest(app.data.baseUrl + "spb/getStudyHistory", prams,
       function (res) {
         if (res.data.length > 0) {
@@ -44,7 +97,7 @@ Page({
             studyInformation: res.data,
             isData: true
           })
-        }else{
+        } else {
           that.setData({
             isData: false
           })

@@ -100,7 +100,6 @@ Page({
   addEpidemicpreventionData() {
     var that = this;
     var prams = {
-      createTime: that.data.curentdate,
       idCard: that.data.card,
       name: that.data.name,
       state: that.data.state,

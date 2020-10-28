@@ -5,9 +5,9 @@
 		</button>
 		<view class="userinfo" wx:if="{{!showAuth}}">
 			<view class="headIcon">
-				<image src="{{userInfo.avatarUrl}}" style="width:70px;height:70px;"></image>
+				<image src="{{avatarUrl}}" style="width:70px;height:70px;"></image>
 			</view>
-			<view class="login">{{userInfo.nickName}}
+			<view class="login">{{nickName}}
 			</view>
 		</view>
 	</view>
@@ -57,14 +57,14 @@
 		<text> ></text>
 	</view>
 </view>
-<view class="line"></view>
+<!-- <view class="line"></view>
 <view class="item" bindtap="bindFabulous">
 	<image class="image-icon" src="/image/fabulous.png"> </image>
 	<view class="title">我的点赞</view>
 	<view class="detail2">
 		<text> ></text>
 	</view>
-</view>
+</view> -->
 <!-- <button class="item-btn" open-type="feedback" style="width:100%;height:50px;">
 	<image class="image-feedback-icon" src="/image/feedback.png"> </image>
 	<view class="title-btn">意见反馈</view>

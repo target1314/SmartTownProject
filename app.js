@@ -3,8 +3,8 @@ var http = require('utils/httputils.js'); //相对路径
 App({
   data: {
     customerTelephone:'0913-3781005',
-    baseUrl: 'https://www.fanjiasmarttown.com/api/',
-    //baseUrl: 'http://127.0.0.1:8089/api/',
+    //baseUrl: 'https://www.fanjiasmarttown.com/api/',
+    baseUrl: 'http://127.0.0.1:8089/api/',
     baseYsUrl: 'https://open.ys7.com/api/',
     token: '', //Authorization
     loginInfo: null, //登录信息，包含access_token和refresh_token

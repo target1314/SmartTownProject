@@ -72,6 +72,11 @@
   margin-left: 6px;
 }
 
+.item-row{
+  display: flex;
+  flex-direction: row;
+}
+
 .new_item {
   display: flex;
   align-items: center;

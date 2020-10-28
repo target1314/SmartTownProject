@@ -182,12 +182,11 @@ Page({
       title: '提示',
       content: '你还未登录，请先登录！',
       success(res) {
-        if (res.confirm) {
-        }
+        if (res.confirm) {}
       }
     })
   },
-  
+
   /**
    * 通知查看内容
    * @param {} params 
@@ -195,7 +194,7 @@ Page({
   noticeClick: function (e) {
     let data = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../partybuilding/dynamicDetail?name=' + data.title + '&content=' + data.content + '&id=' + data.id + '&type=2'
+      url: '../partybuilding/dynamicDetail?name=' + data.title + '&id=' + data.id + '&type=2'
     })
   },
 
@@ -205,7 +204,7 @@ Page({
   dynamicDetail: function (e) {
     let data = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../partybuilding/dynamicDetail?name=' + data.title + '&content=' + data.content + '&id=' + data.id
+      url: '../partybuilding/dynamicDetail?name=' + data.title + '&id=' + data.id
     })
   },
 

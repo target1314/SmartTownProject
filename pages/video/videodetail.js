@@ -38,7 +38,8 @@ Page({
     var prams = {
       studyId: that.data.id,
       url: that.data.videoUrl,
-      title: that.data.title
+      title: that.data.title,
+      userId: wx.getStorageSync('userId')
     }
     http.httpPostRequest(app.data.baseUrl + "spb/addStudyHistory", prams,
       function (res) {

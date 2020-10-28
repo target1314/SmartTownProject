@@ -44,7 +44,7 @@ Page({
   dynamicDetail: function (e) {
     let data = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../partybuilding/dynamicDetail?name=' + data.title + '&content=' + data.content + '&id=' + data.id
+      url: '../partybuilding/dynamicDetail?name=' + data.title + '&id=' + data.id
     })
   },
   /**

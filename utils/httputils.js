@@ -42,6 +42,13 @@ function httpPut(url, params, onSuccess, onFailed) {
   console.log("请求方式：", "PUT")
   httpRequest(url, params, "PUT", onSuccess, onFailed);
 }
+/**
+ * 供外部put请求调用  
+ */
+function httpDelete(url, params, onSuccess, onFailed) {
+  console.log("请求方式：", "DELETE")
+  httpRequest(url, params, "DELETE", onSuccess, onFailed);
+}
 
 /**
  * 供外部get请求调用
@@ -149,5 +156,6 @@ module.exports = {
   postRequest: post,
   httpPostRequest: httpPost,
   httpPutRequest: httpPut,
+  deleteRequest: httpDelete,
   getRequest: get,
 }

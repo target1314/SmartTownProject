@@ -1,8 +1,8 @@
 <!--pages/targetedpovertyalleviation/targetedpovertyalleviationDetail.wxml-->
 <wxs src="../../utils/filter.wxs" module="filter" />
 <view class="list-title">
-	<view class="left">所属乡/镇</view>
-	<view class="right">范家镇村委会</view>
+	<view class="left">所属村</view>
+	<view class="right">{{itemData.village}}</view>
 </view>
 <view class="list-title">
 	<view class="left">帮扶项目</view>

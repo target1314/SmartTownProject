@@ -4,7 +4,7 @@ var http = require('../../utils/httputils.js'); //相对路径
 Page({
   data: {
     customerTelephone: '0913-3781005',
-    userInfo: {},
+    avatarUrl: '',
     nickName: '',
     roleName: '普通用户',
     phone: '',
@@ -111,6 +111,8 @@ Page({
               showAuth: true,
               phone: '未绑定'
             })
+            wx.setStorageSync('phone', '')
+            wx.setStorageSync('userId', '')
             wx.setStorageSync('openId', '')
             wx.setStorageSync('showAuth', true)
           }
@@ -123,15 +125,15 @@ Page({
   /**
    * 我的点赞
    */
-  bindFabulous: function () {
-    if (wx.getStorageSync('openId')) {
-      wx.navigateTo({
-        url: '../me/fabulous'
-      })
-    } else {
-      this.loginJundge();
-    }
-  },
+  /*  bindFabulous: function () {
+     if (wx.getStorageSync('openId')) {
+       wx.navigateTo({
+         url: '../me/fabulous'
+       })
+     } else {
+       this.loginJundge();
+     }
+   }, */
   /**
    * 学习记录
    */
@@ -202,13 +204,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (this.data.openid) {
-      this.bindWxAuth();
-    }
     if (wx.getStorageSync('phone')) {
       this.setData({
         phone: wx.getStorageSync('phone')
       })
+    }
+    if (wx.getStorageSync('userId')) {
+      this.getUserInfo();
     }
   },
 
@@ -222,11 +224,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    var that = this;
     wx.setNavigationBarTitle({
       title: '个人中心'
     })
-    this.wxSetting();
+    var value = wx.getStorageSync('openId');
+    if (value == '') {
+      this.wxSetting();
+    }
   },
 
   /**
@@ -274,11 +278,10 @@ Page({
                   wx.setStorageSync('nickName', res.userInfo.nickName)
                   that.setData({
                     nickName: res.userInfo.nickName,
-                    userInfo: res.userInfo,
+                    avatarUrl: res.userInfo.avatarUrl,
                     showAuth: false
                   })
                   that.bindWxAuth();
-                  that.getAccessToken();
                 }
               })
             },
@@ -309,21 +312,8 @@ Page({
       }
     })
   },
-  /**
-   * 获取AccessToken
-   */
-  getAccessToken() {
-    var prams = {
-      appid: app.data.appId,
-      secret: app.data.appSecret,
-    }
-    http.postRequest(app.data.baseUrl + "sys/getAccessToken", prams,
-      function (res) {
-        var itemData = JSON.parse(res.data);
-        wx.setStorageSync('access_token', itemData.access_token)
-      },
-      function (err) {})
-  },
+
+
   /**
    * 绑定微信
    */
@@ -335,21 +325,9 @@ Page({
     }
     http.httpPostRequest(app.data.baseUrl + "user/wx_auth", prams,
       function (res) {
-        if (res.data && res.data.roles) {
-          if (res.data.phone.length == 0) {
-            that.setData({
-              phone: '未绑定',
-              roleName: res.data.roles[0].roleName
-            })
-          } else {
-            that.setData({
-              phone: res.data.phone,
-              roleName: res.data.roles[0].roleName
-            })
-          }
+        if (res.data) {
           wx.setStorageSync('userId', res.data.userId)
-          wx.setStorageSync('roleId', res.data.roles[0].roleId)
-          that.getAvatar();
+          that.getUserInfo();
         } else {
           that.setData({
             roleName: '普通用户'
@@ -366,11 +344,56 @@ Page({
     wx.getUserInfo({
       success: res => {
         app.globalData.userInfo = res.userInfo;
+        this.setData({
+          avatarUrl: res.userInfo.avatarUrl
+        })
         wx.setStorageSync('bgPic', res.userInfo.avatarUrl)
       }
     })
   },
+
+  /**
+   * 获取用户信息、权限
+   */
+  getUserInfo: function () {
+    var that = this;
+    var prams = {
+      userId: wx.getStorageSync('userId')
+    }
+    http.getRequest(app.data.baseUrl + "user/getUserInfo", prams,
+      function (res) {
+        if (res.data && res.data.roles) {
+          if (res.data.phone == null || res.data.phone == '') {
+            that.setData({
+              phone: '未绑定',
+              roleName: res.data.roles[0].roleName,
+              nickName: res.data.username,
+            })
+          } else {
+            that.setData({
+              phone: res.data.phone,
+              nickName: res.data.username,
+              roleName: res.data.roles[0].roleName
+            })
+          }
+          wx.setStorageSync('userId', res.data.userId)
+          wx.setStorageSync('roleId', res.data.roles[0].roleId)
+          that.getAvatar();
+        } else {
+          that.setData({
+            roleName: '普通用户'
+          })
+        }
+      },
+      function (err) {})
+  },
+
   onPullDownRefresh: function () {
+    if (wx.getStorageSync('userId')) {
+      this.getUserInfo();
+    }
     wx.stopPullDownRefresh();
   },
+
+
 })

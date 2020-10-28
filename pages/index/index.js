@@ -119,7 +119,7 @@ Page({
   newItemClick: function (e) {
     let data = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../partybuilding/dynamicDetail?name=' + data.title + '&content=' + data.content + '&id=' + data.id
+      url: '../partybuilding/dynamicDetail?name=' + data.title  + '&id=' + data.id
     })
   },
   /**
@@ -129,7 +129,7 @@ Page({
   noticeClick: function (e) {
     let data = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../partybuilding/dynamicDetail?name=' + data.title + '&content=' + data.content + '&id=' + data.id + '&type=2'
+      url: '../partybuilding/dynamicDetail?name=' + data.title  + '&id=' + data.id + '&type=2'
     })
   },
 
@@ -193,6 +193,7 @@ Page({
     this.getAdvData();
     this.getHorseRaceLampData();
     this.getDynamicInformationData();
+    this.getAccessToken();
   },
 
   //获取Banner广告
@@ -246,18 +247,35 @@ Page({
   },
 
   onShow: function () {
-    if (app.data.openId) {
+    if (wx.getStorageSync('userId')) {
       this.getUserInfo();
     }
   },
   /**
-   * 绑定微信
+   * 获取AccessToken
+   */
+  getAccessToken() {
+    var prams = {
+      appid: app.data.appId,
+      secret: app.data.appSecret,
+    }
+    http.postRequest(app.data.baseUrl + "sys/getAccessToken", prams,
+      function (res) {
+        var itemData = JSON.parse(res.data);
+        wx.setStorageSync('access_token', itemData.access_token)
+      },
+      function (err) {})
+  },
+
+
+  /**
+   * 获取用户信息、权限
    */
   getUserInfo: function () {
     var prams = {
-      openId: app.data.openId
+      userId: wx.getStorageSync('userId')
     }
-    http.httpPostRequest(app.data.baseUrl + "user/wx_auth", prams,
+    http.getRequest(app.data.baseUrl + "user/getUserInfo", prams,
       function (res) {
         if (res.data && res.data.roles) {
           wx.setStorageSync('roleId', res.data.roles[0].roleId)

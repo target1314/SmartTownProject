@@ -14,14 +14,14 @@
 		<input class="tellinput" wx:if="{{!disabled}}" bindinput="helpNameInput" disabled="{{disabled}}" value="{{helpName}}" />
 		<text class="title">*</text> <text class="title-text">帮扶项目</text>
 		<input class="tellinput" wx:if="{{!disabled}}" bindinput="helpProjectInput" disabled="{{disabled}}" value="{{helpProject}}" />
-		<view wx:if="{{isLocationData}}">
+	<!-- 	<view wx:if="{{isLocationData}}">
 			<text class="title">*</text> <text class="title-text">当前位置</text>
 		</view>
 		<view>
 			<text class="loaction"> {{currentAddress}}</text>
-		</view>
-		<text class="title">*</text> <text class="title-text">帮扶时间</text>
-		<input class="tellinput-time" wx:if="{{!disabled}}" bindtap="helpTimeInput" disabled="false" value="{{helpTime}}" />
+		</view> -->
+	<!-- 	<text class="title">*</text> <text class="title-text">帮扶时间</text>
+		<input class="tellinput-time" wx:if="{{!disabled}}" bindtap="helpTimeInput" disabled="false" value="{{helpTime}}" /> -->
 		<text class="title">*</text> <text class="title-text">贫困状态</text>
 		<input class="tellinput-time" wx:if="{{!disabled}}" bindtap="helpPoorStateInput" disabled="false" value="{{helppoorState}}" />
 		<text class="title">*</text> <text class="title-text">帮扶数量</text>

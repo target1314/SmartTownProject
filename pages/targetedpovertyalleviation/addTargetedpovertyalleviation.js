@@ -68,8 +68,9 @@ Page({
     let helpProjectName = this.data.helpProject
     let helpObjName = this.data.helpObjName
     let helpCompanyName = this.data.helpCompanyName
+    let helppoorState = this.data.helppoorState
     let helpName = this.data.helpName
-    let helpTime = this.data.helpTime
+  /*   let helpTime = this.data.helpTime */
     let helpCount = this.data.helpCount
     if (helpObjName == '') {
       wx.showToast({
@@ -79,7 +80,7 @@ Page({
       return false
     } else if (helpCompanyName == '') {
       wx.showToast({
-        title: '请输入帮扶村委会',
+        title: '请输入帮扶村',
         icon: 'none'
       })
       return false
@@ -96,12 +97,18 @@ Page({
         icon: 'none'
       })
       return false
-    } else if (helpTime == '') {
+    } else if (helppoorState == '') {
+      wx.showToast({
+        title: '请选择贫困状态',
+        icon: 'none'
+      })
+      return false
+ /*    } else if (helpTime == '') {
       wx.showToast({
         title: '请输入帮扶时间',
         icon: 'none'
       })
-      return false
+      return false */
     } else if (helpCount == '') {
       wx.showToast({
         title: '请输入帮扶数量',
@@ -118,7 +125,6 @@ Page({
     var that = this;
     var prams = {
       helpObj: that.data.helpObjName,
-      createTime: that.data.helpTime,
       helpNum: that.data.helpCount,
       helpProject: that.data.helpProject,
       personCharge: that.data.helpName,
@@ -181,7 +187,7 @@ Page({
   onReady: function () {
     var that = this;
     //获取当前位置经纬度
-    wx.getLocation({
+    /* wx.getLocation({
       type: 'wgs84',
       success: function (res) {
         //发送请求通过经纬度反查地址信息  
@@ -208,13 +214,13 @@ Page({
           }
         })
       }
-    })
+    }) */
   },
   /**
    * 日期选择
    * @param {} e 
    */
-  dateSelectAction: function (e) {
+  /* dateSelectAction: function (e) {
     var cur_day = e.currentTarget.dataset.idx;
     this.setData({
       isShow: false,
@@ -223,8 +229,8 @@ Page({
       helpTime: `${this.data.cur_year}-${this.data.cur_month}-${cur_day + 1}`
     })
   },
-
-  setNowDate: function () {
+ */
+/*   setNowDate: function () {
     const date = new Date();
     const cur_year = date.getFullYear();
     const cur_month = date.getMonth() + 1;
@@ -313,7 +319,7 @@ Page({
         cur_month: newMonth
       })
     }
-  },
+  }, */
   /**
    * 生命周期函数--监听页面显示
    */
