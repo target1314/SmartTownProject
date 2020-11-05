@@ -104,10 +104,11 @@ Page({
     if (wx.getStorageSync('openId')) {
       wx.showModal({
         title: '提示',
-        content: '确定要退出当前账号吗?',
+        content: '您确定要退出账号吗?',
         success(res) {
           if (res.confirm) {
             that.setData({
+              roleName: '普通用户',
               showAuth: true,
               phone: '未绑定'
             })
@@ -261,8 +262,8 @@ Page({
         if (res.code) {
           // 必须是在用户已经授权的情况下调用
           var prams = {
-            appid: app.data.appId,
-            secret: app.data.appSecret,
+            appid: wx.getStorageSync('appId'),
+            secret: wx.getStorageSync('appSecret'),
             js_code: res.code
           }
           http.postRequest(app.data.baseUrl + "sys/wxAuth", prams,
@@ -360,7 +361,7 @@ Page({
     var prams = {
       userId: wx.getStorageSync('userId')
     }
-    http.getRequest(app.data.baseUrl + "user/getUserInfo", prams,
+    http.httpGetRequest(app.data.baseUrl + "user/getUserInfo", prams,
       function (res) {
         if (res.data && res.data.roles) {
           if (res.data.phone == null || res.data.phone == '') {

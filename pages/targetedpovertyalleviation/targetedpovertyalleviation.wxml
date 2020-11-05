@@ -16,7 +16,7 @@
 	<view class='mt25'>暂无数据</view>
 </view>
 
-	<block class="container" wx:for="{{list}}" wx:key="index">
+	<block class="container" wx:for="{{list}}" wx:key="index" wx:if="{{isData}}">
 		<view class="list_item_view" bindtap="itemClick" id="{{index}}" data-item="{{item}}">
 			<view class="item_view">
 				<text class="text_title">所属村：{{item.village}}</text>

@@ -202,7 +202,7 @@ Page({
     var prams = {
       type: 2
     }
-    http.getRequest(app.data.baseUrl + "spb/getAdvertisement", prams,
+    http.httpGetRequest(app.data.baseUrl + "spb/getAdvertisement", prams,
       function (res) {
         that.setData({
           imgUrls: res.data
@@ -217,7 +217,7 @@ Page({
     var prams = {
       type: 2
     }
-    http.getRequest(app.data.baseUrl + "spb/getHorseRaceLamp", prams,
+    http.httpGetRequest(app.data.baseUrl + "spb/getHorseRaceLamp", prams,
       function (res) {
         that.setData({
           news: res.data,
@@ -233,7 +233,7 @@ Page({
     var prams = {
       type: 1
     }
-    http.getRequest(app.data.baseUrl + "spb/getDynamicInformation", prams,
+    http.httpGetRequest(app.data.baseUrl + "spb/getDynamicInformation", prams,
       function (res) {
         that.setData({
           dynamicInformation: res.data
@@ -256,10 +256,10 @@ Page({
    */
   getAccessToken() {
     var prams = {
-      appid: app.data.appId,
-      secret: app.data.appSecret,
+      appid: wx.getStorageSync('appId'),
+      secret: wx.getStorageSync('appSecret'),
     }
-    http.postRequest(app.data.baseUrl + "sys/getAccessToken", prams,
+    http.httpGetRequest(app.data.baseUrl + "sys/getAccessToken", prams,
       function (res) {
         var itemData = JSON.parse(res.data);
         wx.setStorageSync('access_token', itemData.access_token)
@@ -275,12 +275,18 @@ Page({
     var prams = {
       userId: wx.getStorageSync('userId')
     }
-    http.getRequest(app.data.baseUrl + "user/getUserInfo", prams,
+    http.httpGetRequest(app.data.baseUrl + "user/getUserInfo", prams,
       function (res) {
         if (res.data && res.data.roles) {
           wx.setStorageSync('roleId', res.data.roles[0].roleId)
         }
       },
       function (err) {})
-  }
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '范家智慧小镇',
+      path: 'pages/index/index'
+    }
+  },
 })

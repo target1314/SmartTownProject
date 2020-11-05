@@ -15,27 +15,28 @@ Page({
     swiperCurrent: 0,
     chunnelDefault: [{
         name: '党建动态',
-        type: '1',
+        type: 1,
         image: '/image/home/dongtai.png'
       },
       {
         name: '主题教育',
-        type: '2',
+        type: 2,
         image: '/image/home/xuexi.png'
-      }, {
+      }, 
+      {
         name: '三会一课',
-        type: '3',
+        type: 3,
         image: '/image/home/jiaoyu.png'
       },
       {
         name: '论坛互动',
-        type: '4',
+        type: 4,
         image: '/image/home/hudong.png'
       },
     ],
     dynamicInformation: null, //动态信息
     studyInformation: null, //学习信息
-    navbar: ['最新动态', '学习课程'],
+    navbar: ['最新动态', '视频学习'],
     currentTab: 0,
     news: null,
     autoplay: true,
@@ -104,7 +105,7 @@ Page({
     var prams = {
       type: 1
     }
-    http.getRequest(app.data.baseUrl + "spb/getHorseRaceLamp", prams,
+    http.httpGetRequest(app.data.baseUrl + "spb/getHorseRaceLamp", prams,
       function (res) {
         that.setData({
           news: res.data
@@ -119,7 +120,7 @@ Page({
     var prams = {
       type: 5
     }
-    http.getRequest(app.data.baseUrl + "spb/getDynamicInformation", prams,
+    http.httpGetRequest(app.data.baseUrl + "spb/getDynamicInformation", prams,
       function (res) {
         that.setData({
           dynamicInformation: res.data
@@ -131,7 +132,7 @@ Page({
   getStudyInformationData() {
     var that = this;
     var prams = {}
-    http.getRequest(app.data.baseUrl + "spb/getStudyInformation", prams,
+    http.httpGetRequest(app.data.baseUrl + "spb/getStudyInformation", prams,
       function (res) {
         that.setData({
           studyInformation: res.data
@@ -145,22 +146,27 @@ Page({
     let data = e.currentTarget.dataset.item,
       type = data.type;
     switch (type) {
-      case "1":
+      case 1:
         wx.navigateTo({
           url: '../partybuilding/dynamic?name=' + data.name + '&type=5'
         })
         break
-      case "2":
+     /*  case 2:
         wx.navigateTo({
           url: '../partybuilding/study?name=' + data.name
         })
+        break */
+      case 2:
+        wx.navigateTo({
+          url: '../partybuilding/dynamic?name=' + data.name + '&type=7'
+        })
         break
-      case "3":
+      case 3:
         wx.navigateTo({
           url: '../partybuilding/dynamic?name=' + data.name + '&type=6'
         })
         break
-      case "4":
+      case 4:
         if (wx.getStorageSync('openId')) {
           wx.navigateTo({
             url: '../partybuilding/interaction?name=' + data.name

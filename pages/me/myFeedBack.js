@@ -179,7 +179,7 @@ Page({
       state: 2,
       isDelete: 2,
     }
-    http.getRequest(app.data.baseUrl + "getConvenientServiceList", prams,
+    http.httpGetRequest(app.data.baseUrl + "getConvenientServiceList", prams,
       function (res) {
         if (res.data.length > 0) {
           that.setData({
