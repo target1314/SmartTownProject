@@ -24,8 +24,8 @@
 		<input class="tellinput-time" wx:if="{{!disabled}}" bindtap="helpTimeInput" disabled="false" value="{{helpTime}}" /> -->
 		<text class="title">*</text> <text class="title-text">贫困状态</text>
 		<input class="tellinput-time" wx:if="{{!disabled}}" bindtap="helpPoorStateInput" disabled="false" value="{{helppoorState}}" />
-		<text class="title">*</text> <text class="title-text">帮扶数量</text>
-		<input class="tellinput" wx:if="{{!disabled}}" type="number" bindinput="helpCountInput" disabled="{{disabled}}" value="{{helpCount}}" />
+		<text class="title">*</text> <text class="title-text">贫困年度</text>
+		<input class="tellinput" wx:if="{{!disabled}}"  bindinput="poorYearInput" disabled="{{disabled}}" value="{{poorYear}}" />
 	</view>
 	<button class='comm-btn' bindtap="primary" disabled="{{disabled}}">
 		<view>立即提交</view>

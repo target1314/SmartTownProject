@@ -34,7 +34,12 @@ Page({
         name: '数据登记',
         type: 5,
         image: '/image/home/shujudengji.png'
-      }
+      },
+ /*      {
+        name: '农业数据',
+        type: 6,
+        image: '/image/home/nongfu.png'
+      }, */
     ]
   },
 
@@ -77,6 +82,11 @@ Page({
           url: '../informationregistration/informationregistration?name=' + data.name
         })
         break
+  /*     case 6:
+        wx.navigateTo({
+          url: '../me/webViewUrl'
+        })
+        break */
     }
   },
 

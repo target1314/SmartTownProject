@@ -1,39 +1,11 @@
-// pages/index/newsInformation.js
-var http = require('../../utils/httputils.js'); //相对路径
-//获取应用实例
-const app = getApp()
+// pages/me/webViewUrl.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    dynamicInformation: null, //动态信息
-  },
 
-  //获取范家故事信息
-  getDynamicInformationData() {
-    var that = this;
-    var prams = {
-      type: 2
-    }
-    http.getRequest(app.data.baseUrl + "spb/getDynamicInformation", prams,
-      function (res) {
-        that.setData({
-          dynamicInformation: res.data
-        })
-      },
-      function (err) {})
-  },
-
-  /**
-   * 查看内容
-   * @param {} params 
-   */
-  newItemClick: function (e) {
-    let data = e.currentTarget.dataset.item
-    wx.navigateTo({
-      url: '../partybuilding/dynamicDetail?name=' + data.title + '&id=' + data.id
-    })
   },
 
   /**
@@ -41,12 +13,11 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: options.name,
+      title: '农业数据'
     })
-    this.getDynamicInformationData();
   },
 
-  /**Î
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

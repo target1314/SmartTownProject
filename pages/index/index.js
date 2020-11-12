@@ -19,7 +19,7 @@ Page({
         image: '/image/home/dangjian.png'
       },
       {
-        name: '范家故事',
+        name: '范家概况',
         type: 2,
         image: '/image/home/gushi.png'
       },

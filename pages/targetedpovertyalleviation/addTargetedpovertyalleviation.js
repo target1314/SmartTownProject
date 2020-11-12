@@ -12,7 +12,7 @@ Page({
     helpCompanyName: '',
     helpName: '',
     helpTime: '',
-    helpCount: '',
+    poorYear: '',
     isLocationData: false,
     hasEmptyGrid: false,
     cur_year: '',
@@ -56,10 +56,10 @@ Page({
     })
     this.setNowDate();
   },
-  //帮扶数量
-  helpCountInput: function (e) {
+  //贫困年度
+  poorYearInput: function (e) {
     this.setData({
-      helpCount: e.detail.value
+      poorYear: e.detail.value
     })
   },
 
@@ -71,7 +71,7 @@ Page({
     let helppoorState = this.data.helppoorState
     let helpName = this.data.helpName
   /*   let helpTime = this.data.helpTime */
-    let helpCount = this.data.helpCount
+    let poorYear = this.data.poorYear
     if (helpObjName == '') {
       wx.showToast({
         title: '请输入帮扶对象',
@@ -109,9 +109,9 @@ Page({
         icon: 'none'
       })
       return false */
-    } else if (helpCount == '') {
+    } else if (poorYear == '') {
       wx.showToast({
-        title: '请输入帮扶数量',
+        title: '请输入贫困年度',
         icon: 'none'
       })
       return false
@@ -125,10 +125,9 @@ Page({
     var that = this;
     var prams = {
       helpObj: that.data.helpObjName,
-      helpNum: that.data.helpCount,
+      poorYear: that.data.poorYear,
       helpProject: that.data.helpProject,
       personCharge: that.data.helpName,
-      subName: wx.getStorageSync('nickName'),
       village: that.data.helpCompanyName,
       poorState: that.data.poorState,
     }

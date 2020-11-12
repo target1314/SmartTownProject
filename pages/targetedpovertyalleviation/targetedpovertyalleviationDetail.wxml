@@ -18,14 +18,14 @@
 	<view class="right">{{itemData.personCharge}}</view>
 </view>
 <view class="list-title">
-	<view class="left">帮扶时间</view>
-	<view class="right">{{filter.formatTime(itemData.createTime, 'yyyy-MM-dd')}}</view>
+	<view class="left">贫困年度</view>
+	<view class="right">{{itemData.poorYear}}</view>
 </view>
 <view class="list-title">
 	<view class="left">贫困状态 </view>
-	<view class="right">{{itemData.poorState==2 ? '贫困':'贫困'}}</view>
+	<view class="right">{{itemData.poorState==2 ? '未脱贫':'已脱贫'}}</view>
 </view>
-<view class="list-title">
+<!-- <view class="list-title">
 	<view class="left">帮扶数 </view>
 	<view class="right">{{itemData.helpNum}}</view>
-</view>
+</view> -->

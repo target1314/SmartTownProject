@@ -10,6 +10,7 @@
     "pages/me/setting",
     "pages/me/studyHistory",
     "pages/me/myFeedBack",
+    "pages/me/webViewUrl",
     "pages/greenhouse/greenhouse",
     "pages/aquaculture/aquaculture",
     "pages/aquaculture/addAquaculture",

@@ -21,8 +21,8 @@
 			<view class="item_view">
 				<text class="text_title">所属村：{{item.village}}</text>
 				<text class="text_small">帮扶项目：{{item.helpProject}}</text>
-				<text class="text_small">提交时间：{{filter.formatTime(item.createTime, 'yyyy-MM-dd')}}</text>
-				<text class="text_small">提交人：{{item.subName}}</text>
+				<text class="text_small">贫困年度：{{item.poorYear}}</text>
+				<text class="text_small">帮扶对象：{{item.helpObj}}</text>
 			</view>
 		</view>
 		<view class="line"></view>
