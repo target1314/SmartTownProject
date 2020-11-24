@@ -36,7 +36,7 @@ Page({
     ],
     dynamicInformation: null, //动态信息
     studyInformation: null, //学习信息
-    navbar: ['最新动态', '视频学习'],
+    navbar: ['最新动态', '学习动态'],
     currentTab: 0,
     news: null,
     autoplay: true,

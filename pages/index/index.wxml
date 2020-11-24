@@ -41,6 +41,18 @@
 			</view>
 		</view>
 	</view>
+		<view class="line" wx:if="{{videoUrl}}"></view>
+	<view class='horizontal happnews' wx:if="{{videoUrl}}">
+		<view class='item happy_tui'>
+			<view class='show-text-1 '>
+				<text class='icon_line'></text>
+				<text class='new_item_text'>旅游宣传</text>
+			</view>
+		</view>
+	</view>
+	<view class="video-body" wx:if="{{videoUrl}}">
+	<video id="myVideo" src="{{videoUrl}}" autoplay="true"></video>
+</view>
 	<view class="line"></view>
 	<view class='horizontal happnews'>
 		<view class='item happy_tui'>
@@ -53,7 +65,41 @@
 			<text>更多>></text>
 		</view>
 	</view>
-<view class="item" wx:for="{{dynamicInformation}}" wx:key="message" bindtap="newItemClick" data-item="{{item}}" wx:if="{{index<10}}">
+<view class="item" wx:for="{{dynamicInformation}}" wx:key="message" bindtap="newItemClick" data-item="{{item}}" wx:if="{{index<5}}">
+	<view class="item_data" hover-class="item-hover">
+		<view class='img'>
+			<image src="{{item.icon}}" style="width:90px;height:90px;"></image>
+		</view>
+		<view class="item-child">
+			<view class="title">
+				{{item.title}}
+			</view>
+				<view class="navListTitleItem">
+					<view class="navListTitleLeft">
+						{{item.userName}}
+					</view>
+					<view class="navListTitleRight">
+						{{filter.formatDate(item.createTime)}}
+					</view>
+				</view>
+		</view>
+	</view>
+	<view class="line"></view>
+</view>
+
+<view class="line"></view>
+	<view class='horizontal happnews'>
+		<view class='item happy_tui'>
+			<view class='show-text-1 '>
+				<text class='icon_line'></text>
+				<text class='new_item_text'>公共安全</text>
+			</view>
+		</view>
+		<view class='more' bindtap="publicSafetyMoreClick">
+			<text>更多>></text>
+		</view>
+	</view>
+<view class="item" wx:for="{{publicSafety}}" wx:key="message" bindtap="newItemClick" data-item="{{item}}" wx:if="{{index<5}}">
 	<view class="item_data" hover-class="item-hover">
 		<view class='img'>
 			<image src="{{item.icon}}" style="width:90px;height:90px;"></image>

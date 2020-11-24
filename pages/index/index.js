@@ -4,14 +4,16 @@ var http = require('../../utils/httputils.js'); //相对路径
 const app = getApp()
 Page({
   data: {
-    imgUrls: null,
-    dynamicInformation: null, //动态信息
+    imgUrls: [],
+    dynamicInformation: [], //动态信息
+    publicSafety: [], //公共安全信息
+    videoUrl:'',
     autoplay: true,
     interval: 5000,
     duration: 1000,
     swiperCurrent: 0,
     Hei: wx.getStorageSync('swiperH'), //这是swiper要动态设置的高度属性
-    news: null,
+    news: [],
     isAdvTitle: false,
     chunnelDefault: [{
         name: '智慧党建',
@@ -111,6 +113,15 @@ Page({
       url: '../index/HomeNewsInformation?name=' + '新闻资讯' + '&type=1'
     })
   },
+  /**
+   * 更多安全
+   * @param {} params 
+   */
+  publicSafetyMoreClick: function (params) {
+    wx.navigateTo({
+      url: '../index/HomeNewsInformation?name=' + '公共安全' + '&type=11'
+    })
+  },
 
   /**
    * 查看内容
@@ -192,7 +203,9 @@ Page({
   onLoad: function () {
     this.getAdvData();
     this.getHorseRaceLampData();
+    this.getPromotionalVideoData();
     this.getDynamicInformationData();
+    this.getPublicSafetyData();
     this.getAccessToken();
   },
 
@@ -227,6 +240,21 @@ Page({
       function (err) {})
   },
 
+  //获取宣传视频
+  getPromotionalVideoData() {
+    var that = this;
+    var prams = {
+    }
+    http.httpGetRequest(app.data.baseUrl + "promotionalVideo", prams,
+      function (res) {
+        if (res.data.length >0) {
+          that.setData({
+            videoUrl: res.data[0].url
+          })
+        }  
+      },
+      function (err) {})
+  },
   //获取新闻资讯信息
   getDynamicInformationData() {
     var that = this;
@@ -237,6 +265,22 @@ Page({
       function (res) {
         that.setData({
           dynamicInformation: res.data
+        })
+      },
+      function (err) {})
+  },
+
+
+  //获取公共安全信息
+  getPublicSafetyData() {
+    var that = this;
+    var prams = {
+      type: 11
+    }
+    http.httpGetRequest(app.data.baseUrl + "spb/getDynamicInformation", prams,
+      function (res) {
+        that.setData({
+          publicSafety: res.data
         })
       },
       function (err) {})

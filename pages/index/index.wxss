@@ -11,6 +11,23 @@
   bottom: 20rpx;
 }
 
+.video-body {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  /*因为padding和margin等受width影响，父容器固定后，子标签可以进行填充。此处是56.25%是9/16，其他比例可以依照此法*/
+}
+
+video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
 /*未选中时的小圆点样式 */
 .swipercontent {
   position: relative;
@@ -198,7 +215,7 @@ swiper image {
   flex-direction: column;
 }
 
-.item_data{
+.item_data {
   display: flex;
   flex-direction: row;
 }
@@ -213,19 +230,20 @@ swiper image {
   margin-left: 10px;
   width: 100%;
 }
+
 .title {
   display: -webkit-box;
   margin-top: 6px;
   width: 100%;
   font-size: 16px;
-  height:45px;
+  height: 45px;
   -webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
-	overflow: hidden;
-	text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.navListTitleItem{
+.navListTitleItem {
   display: flex;
   flex-direction: row;
   margin-top: 24px;
@@ -233,11 +251,12 @@ swiper image {
   align-items: center;
 }
 
-.navListTitleLeft{
+.navListTitleLeft {
   margin-right: 6px;
   font-size: 12px;
 }
-.navListTitleRight{
+
+.navListTitleRight {
   margin-right: 6px;
   font-size: 12px;
 }
@@ -248,9 +267,9 @@ swiper image {
   color: gray;
   margin-top: 6px;
   -webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
-	overflow: hidden;
-	text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hr {

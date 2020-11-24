@@ -59,7 +59,7 @@ Page({
     switch (type) {
       case 1:
         wx.navigateTo({
-          url: '../targetedpovertyalleviation/targetedpovertyalleviation?name=' + data.name
+          url: '../targetedpovertyalleviation/addTargetedpovertyalleviation'
         })
         break
       case 2:
