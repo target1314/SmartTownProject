@@ -41,7 +41,7 @@
 			</view>
 		</view>
 	</view>
-		<view class="line" wx:if="{{videoUrl}}"></view>
+		<view class="line"></view>
 	<view class='horizontal happnews' wx:if="{{videoUrl}}">
 		<view class='item happy_tui'>
 			<view class='show-text-1 '>
@@ -53,7 +53,6 @@
 	<view class="video-body" wx:if="{{videoUrl}}">
 	<video id="myVideo" src="{{videoUrl}}" autoplay="true"></video>
 </view>
-	<view class="line"></view>
 	<view class='horizontal happnews'>
 		<view class='item happy_tui'>
 			<view class='show-text-1 '>
